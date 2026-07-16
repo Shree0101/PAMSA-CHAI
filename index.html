@@ -3,17 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAMSA CHAI</title>
+
+    <title>PAMSA CHAI | A Family Tea Brand</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fffaf2;
+            color: #3b2114;
+        }
+
+        header {
+            background: #3b2114;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #fff3d6, #f5d5a0);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #3b2114;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 17px;
+        }
+
+        section {
+            padding: 70px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 35px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 250px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .story {
+            background: #3b2114;
+            color: white;
+        }
+
+        footer {
+            background: #24130c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>☕ PAMSA CHAI</h1>
+    <header>
+        <div class="logo">☕ PAMSA CHAI</div>
 
-    <h2>घरच्या चवीचा, प्रेमाने बनवलेला चहा ❤️</h2>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#story">Our Story</a>
+            <a href="#order">Order</a>
+        </nav>
+    </header>
 
-    <p>Welcome to PAMSA CHAI</p>
+    <section class="hero">
+        <div>
+            <h1>☕ PAMSA CHAI</h1>
 
-    <button>Order Now</button>
+            <h2>घरच्या चवीचा चहा ❤️</h2>
+
+            <p>
+                A family recipe. A cup full of love.
+            </p>
+
+            <a href="#order" class="btn">Order Your Chai</a>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Our Special Chai</h2>
+
+        <div class="menu">
+
+            <div class="card">
+                <h3>☕ Cutting Chai</h3>
+                <p>Perfect strong tea for your perfect break.</p>
+                <div class="price">₹15</div>
+            </div>
+
+            <div class="card">
+                <h3>🫖 Special Chai</h3>
+                <p>Our special family recipe.</p>
+                <div class="price">₹25</div>
+            </div>
+
+            <div class="card">
+                <h3>🥛 Masala Chai</h3>
+                <p>Rich spices with the taste of home.</p>
+                <div class="price">₹30</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="story" class="story">
+        <h2>Our Family. Our Chai. Our Story.</h2>
+
+        <p>
+            PAMSA CHAI is more than just tea.
+            It is a family dream made with love, passion and the perfect cup of chai.
+        </p>
+
+        <br>
+
+        <p>
+            Every cup is prepared with the same love and care that makes a house feel like home.
+        </p>
+    </section>
+
+    <section id="order">
+        <h2>Ready for Your Chai?</h2>
+
+        <p>Order your favourite chai today!</p>
+
+        <br>
+
+        <a class="btn" href="https://wa.me/919999999999">
+            📲 Order on WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 PAMSA CHAI. Made with ❤️ by Family.</p>
+    </footer>
 
 </body>
 </html>
