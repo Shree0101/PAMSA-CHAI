@@ -62,14 +62,18 @@ header{
 .logo-icon{
   width:52px;
   height:52px;
-  border-radius:50%;
-  background:var(--brown);
+  border-radius:18px 18px 18px 4px;
+  background:linear-gradient(135deg,var(--brown),var(--orange));
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
   font-size:28px;
-  box-shadow:0 5px 15px #0003;
+  box-shadow:0 8px 18px #542b1f44;
+  transform:rotate(-8deg);
+}
+.logo-icon span{
+  transform:rotate(8deg);
 }
 
 .logo span{
@@ -655,7 +659,7 @@ footer a{
 <nav class="navbar">
 
 <div class="logo">
-<div class="logo-icon">☕</div>
+<div class="logo-icon"><span>☕</span></div>
 PAMSA <span>CHAI</span>
 </div>
 
@@ -993,6 +997,8 @@ Stories, memories, updates and moments from PAMSA CHAI.
 <div class="admin-panel">
 
 <h3>📝 Add New Blog</h3>
+<p class="admin-note">Publish a story, update, offer or PAMSA CHAI memory. It will be saved in this browser.</p>
+<p class="admin-note"><strong>Note:</strong> This GitHub Pages version saves content locally on the device/browser. Later we can connect a cloud database so every visitor sees the same posts and photos.</p>
 
 <form class="add-form" onsubmit="addBlog(event)">
 
@@ -1011,6 +1017,10 @@ required
 
 <button class="btn" type="submit">
 ADD BLOG
+</button>
+
+<button class="btn btn-danger" type="button" onclick="clearBlogs()">
+CLEAR SAVED BLOGS
 </button>
 
 </form>
@@ -1046,17 +1056,14 @@ This is where our journey begins.
 <h3>📸 Add Photo From Your Laptop</h3>
 
 <p>
-Select an image from your laptop and add it to the PAMSA Gallery.
+Choose a photo from your laptop. Add a caption and it will appear in the PAMSA Gallery.
 </p>
 
-<br>
-
-<input
-type="file"
-id="photoInput"
-accept="image/*"
-onchange="addPhoto(event)"
->
+<div class="add-form">
+<input type="text" id="photoCaption" placeholder="Photo caption e.g. Our First Chai Memory">
+<input type="file" id="photoInput" accept="image/*" onchange="addPhoto(event)">
+<button class="btn btn-danger" type="button" onclick="clearGallery()">CLEAR SAVED GALLERY</button>
+</div>
 
 </div>
 
@@ -1277,16 +1284,43 @@ A thousand stories waiting to be brewed.
 <script>
 
 
+
+.admin-note{
+  color:#765e51;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+.btn-danger{
+  background:#8f2d22;
+  color:white;
+}
+.admin-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+.small-btn{
+  border:0;
+  cursor:pointer;
+  padding:8px 12px;
+  border-radius:6px;
+  background:#8f2d22;
+  color:white;
+  font-weight:bold;
+}
+
 /* MOBILE MENU */
 
 function toggleMenu(){
-
-document
-.getElementById("navLinks")
-.classList
-.toggle("active");
-
+  document.getElementById("navLinks").classList.toggle("active");
 }
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+  link.addEventListener("click", function(){
+    document.getElementById("navLinks").classList.remove("active");
+  });
+});
 
 
 /* ADD BLOG */
@@ -1316,11 +1350,11 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
-
-<h3>📝 ${title}</h3>
-
-<p>${content}</p>
-
+<h3>📝 ${escapeHtml(title)}</h3>
+<p>${escapeHtml(content).replace(/\n/g,"<br>")}</p>
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+</div>
 `;
 
 blogList.prepend(card);
@@ -1357,59 +1391,37 @@ alert("Blog added successfully!");
 
 function addPhoto(event){
 
-const file =
-event
-.target
-.files[0];
+const file = event.target.files[0];
+if(!file) return;
 
-if(!file){
-
-return;
-
-}
-
-const reader =
-new FileReader();
+const caption = document.getElementById("photoCaption").value.trim() || "PAMSA CHAI Memory";
+const reader = new FileReader();
 
 reader.onload=function(e){
 
-const gallery =
-document
-.getElementById("galleryList");
-
-const card =
-document
-.createElement("div");
-
+const gallery = document.getElementById("galleryList");
+const card = document.createElement("div");
 card.className="gallery-card";
 
 card.innerHTML=`
-
-<img src="${e.target.result}">
-
+<img src="${e.target.result}" alt="${escapeHtml(caption)}">
 <div class="gallery-caption">
-
-PAMSA CHAI Memory
-
+${escapeHtml(caption)}
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
 </div>
-
+</div>
 `;
 
 gallery.prepend(card);
 
-const savedPhotos =
-JSON.parse(
-localStorage.getItem("pamsaPhotos") || "[]"
-);
+const savedPhotos = JSON.parse(localStorage.getItem("pamsaPhotos") || "[]");
+savedPhotos.unshift({image:e.target.result, caption:caption});
+localStorage.setItem("pamsaPhotos", JSON.stringify(savedPhotos));
 
-savedPhotos.unshift(e.target.result);
-
-localStorage.setItem(
-"pamsaPhotos",
-JSON.stringify(savedPhotos)
-);
-
-alert("Photo added to gallery!");
+document.getElementById("photoCaption").value="";
+document.getElementById("photoInput").value="";
+alert("Photo added to PAMSA Gallery!");
 
 };
 
@@ -1436,11 +1448,11 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
-
-<h3>📝 ${blog.title}</h3>
-
-<p>${blog.content}</p>
-
+<h3>📝 ${escapeHtml(blog.title)}</h3>
+<p>${escapeHtml(blog.content).replace(/\n/g,"<br>")}</p>
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+</div>
 `;
 
 document
@@ -1457,31 +1469,54 @@ localStorage.getItem("pamsaPhotos") || "[]"
 
 savedPhotos.forEach(function(photo){
 
-const card =
-document
-.createElement("div");
-
+const card = document.createElement("div");
 card.className="gallery-card";
 
+const image = typeof photo === "string" ? photo : photo.image;
+const caption = typeof photo === "string" ? "PAMSA CHAI Memory" : photo.caption;
+
 card.innerHTML=`
-
-<img src="${photo}">
-
+<img src="${image}" alt="${escapeHtml(caption)}">
 <div class="gallery-caption">
-
-PAMSA CHAI Memory
-
+${escapeHtml(caption)}
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
 </div>
-
+</div>
 `;
 
-document
-.getElementById("galleryList")
-.appendChild(card);
+document.getElementById("galleryList").appendChild(card);
 
 });
 
 };
+
+
+
+function escapeHtml(value){
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function clearBlogs(){
+  if(confirm("Clear all saved blogs from this browser?")){
+    localStorage.removeItem("pamsaBlogs");
+    document.getElementById("blogList").innerHTML="";
+    alert("Saved blogs cleared.");
+  }
+}
+
+function clearGallery(){
+  if(confirm("Clear all saved gallery photos from this browser?")){
+    localStorage.removeItem("pamsaPhotos");
+    document.getElementById("galleryList").innerHTML="";
+    alert("Saved gallery cleared.");
+  }
+}
 
 
 /* CONTACT FORM */
