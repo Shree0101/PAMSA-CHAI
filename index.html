@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -61,10 +59,21 @@ header{
   color:var(--brown);
 }
 
-.logo img{
-  width:75px;
-  height:65px;
-  object-fit:contain;
+.logo-icon{
+  width:52px;
+  height:52px;
+  border-radius:18px 18px 18px 4px;
+  background:linear-gradient(135deg,var(--brown),var(--orange));
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+  box-shadow:0 8px 18px #542b1f44;
+  transform:rotate(-8deg);
+}
+.logo-icon span{
+  transform:rotate(8deg);
 }
 
 .logo span{
@@ -494,25 +503,6 @@ textarea{
   gap:15px;
 }
 
-.form-status{
-  font-weight:bold;
-  padding:10px;
-  text-align:center;
-  display:none;
-}
-
-.form-success{
-  display:block;
-  color:green;
-}
-
-.form-error{
-  display:block;
-  color:red;
-}
-
-/* MAP */
-
 .map{
   margin-top:50px;
   height:350px;
@@ -561,23 +551,6 @@ footer li{
 footer a{
   color:#ddd;
   text-decoration:none;
-}
-
-.footer-logo{
-  width:100px;
-  height:80px;
-  background:white;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:20px;
-}
-
-.footer-logo img{
-  width:90px;
-  height:70px;
-  object-fit:contain;
 }
 
 .copyright{
@@ -675,7 +648,6 @@ footer a{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -687,9 +659,8 @@ footer a{
 <nav class="navbar">
 
 <div class="logo">
-
-<img src="pamsa-logo.png.png" alt="PAMSA CHAI Logo">
-
+<div class="logo-icon"><span>☕</span></div>
+PAMSA <span>CHAI</span>
 </div>
 
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -1026,6 +997,8 @@ Stories, memories, updates and moments from PAMSA CHAI.
 <div class="admin-panel">
 
 <h3>📝 Add New Blog</h3>
+<p class="admin-note">Publish a story, update, offer or PAMSA CHAI memory. It will be saved in this browser.</p>
+<p class="admin-note"><strong>Note:</strong> This GitHub Pages version saves content locally on the device/browser. Later we can connect a cloud database so every visitor sees the same posts and photos.</p>
 
 <form class="add-form" onsubmit="addBlog(event)">
 
@@ -1044,6 +1017,10 @@ required
 
 <button class="btn" type="submit">
 ADD BLOG
+</button>
+
+<button class="btn btn-danger" type="button" onclick="clearBlogs()">
+CLEAR SAVED BLOGS
 </button>
 
 </form>
@@ -1079,17 +1056,14 @@ This is where our journey begins.
 <h3>📸 Add Photo From Your Laptop</h3>
 
 <p>
-Select an image from your laptop and add it to the PAMSA Gallery.
+Choose a photo from your laptop. Add a caption and it will appear in the PAMSA Gallery.
 </p>
 
-<br>
-
-<input
-type="file"
-id="photoInput"
-accept="image/*"
-onchange="addPhoto(event)"
->
+<div class="add-form">
+<input type="text" id="photoCaption" placeholder="Photo caption e.g. Our First Chai Memory">
+<input type="file" id="photoInput" accept="image/*" onchange="addPhoto(event)">
+<button class="btn btn-danger" type="button" onclick="clearGallery()">CLEAR SAVED GALLERY</button>
+</div>
 
 </div>
 
@@ -1157,48 +1131,40 @@ We would love to hear from you.
 
 <form
 class="contact-form"
-id="contactForm"
 onsubmit="sendMessage(event)"
 >
 
 <input
 type="text"
-id="contactName"
 placeholder="Your Name"
 required
 >
 
 <input
 type="email"
-id="contactEmail"
 placeholder="Your Email"
 required
 >
 
 <input
 type="tel"
-id="contactPhone"
 placeholder="Phone Number"
 required
 >
 
 <textarea
-id="contactMessage"
 placeholder="Your Message"
 required
 ></textarea>
 
 <button
 class="btn"
-id="submitButton"
 type="submit"
 >
 
 SEND MESSAGE
 
 </button>
-
-<p id="formStatus" class="form-status"></p>
 
 </form>
 
@@ -1226,11 +1192,7 @@ src="https://www.google.com/maps?q=Shivajinagar,Pune,Maharashtra&output=embed">
 
 <div>
 
-<div class="footer-logo">
-
-<img src="pamsa-logo.png.png" alt="PAMSA CHAI Logo">
-
-</div>
+<h3>☕ PAMSA CHAI</h3>
 
 <p>
 
@@ -1321,34 +1283,47 @@ A thousand stories waiting to be brewed.
 
 <script>
 
-/* =========================
-   SUPABASE CONFIGURATION
-========================= */
-
-const SUPABASE_URL =
-"https://sebfxpsrjzhnrrtpbvuo.supabase.co";
-
-const SUPABASE_ANON_KEY =
-"PASTE_YOUR_PUBLISHABLE_KEY_HERE";
 
 
-/* =========================
-   MOBILE MENU
-========================= */
-
-function toggleMenu(){
-
-document
-.getElementById("navLinks")
-.classList
-.toggle("active");
-
+.admin-note{
+  color:#765e51;
+  line-height:1.6;
+  margin-bottom:10px;
+}
+.btn-danger{
+  background:#8f2d22;
+  color:white;
+}
+.admin-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+.small-btn{
+  border:0;
+  cursor:pointer;
+  padding:8px 12px;
+  border-radius:6px;
+  background:#8f2d22;
+  color:white;
+  font-weight:bold;
 }
 
+/* MOBILE MENU */
 
-/* =========================
-   ADD BLOG
-========================= */
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".nav-links a").forEach(function(link){
+  link.addEventListener("click", function(){
+    document.getElementById("navLinks").classList.remove("active");
+  });
+});
+
+
+/* ADD BLOG */
 
 function addBlog(event){
 
@@ -1375,11 +1350,11 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
-
-<h3>📝 ${title}</h3>
-
-<p>${content}</p>
-
+<h3>📝 ${escapeHtml(title)}</h3>
+<p>${escapeHtml(content).replace(/\n/g,"<br>")}</p>
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+</div>
 `;
 
 blogList.prepend(card);
@@ -1412,65 +1387,41 @@ alert("Blog added successfully!");
 }
 
 
-/* =========================
-   ADD PHOTO
-========================= */
+/* ADD PHOTO FROM LAPTOP */
 
 function addPhoto(event){
 
-const file =
-event
-.target
-.files[0];
+const file = event.target.files[0];
+if(!file) return;
 
-if(!file){
-
-return;
-
-}
-
-const reader =
-new FileReader();
+const caption = document.getElementById("photoCaption").value.trim() || "PAMSA CHAI Memory";
+const reader = new FileReader();
 
 reader.onload=function(e){
 
-const gallery =
-document
-.getElementById("galleryList");
-
-const card =
-document
-.createElement("div");
-
+const gallery = document.getElementById("galleryList");
+const card = document.createElement("div");
 card.className="gallery-card";
 
 card.innerHTML=`
-
-<img src="${e.target.result}">
-
+<img src="${e.target.result}" alt="${escapeHtml(caption)}">
 <div class="gallery-caption">
-
-PAMSA CHAI Memory
-
+${escapeHtml(caption)}
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
 </div>
-
+</div>
 `;
 
 gallery.prepend(card);
 
-const savedPhotos =
-JSON.parse(
-localStorage.getItem("pamsaPhotos") || "[]"
-);
+const savedPhotos = JSON.parse(localStorage.getItem("pamsaPhotos") || "[]");
+savedPhotos.unshift({image:e.target.result, caption:caption});
+localStorage.setItem("pamsaPhotos", JSON.stringify(savedPhotos));
 
-savedPhotos.unshift(e.target.result);
-
-localStorage.setItem(
-"pamsaPhotos",
-JSON.stringify(savedPhotos)
-);
-
-alert("Photo added to gallery!");
+document.getElementById("photoCaption").value="";
+document.getElementById("photoInput").value="";
+alert("Photo added to PAMSA Gallery!");
 
 };
 
@@ -1479,9 +1430,7 @@ reader.readAsDataURL(file);
 }
 
 
-/* =========================
-   LOAD SAVED BLOGS & PHOTOS
-========================= */
+/* LOAD SAVED BLOGS */
 
 window.onload=function(){
 
@@ -1499,11 +1448,11 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
-
-<h3>📝 ${blog.title}</h3>
-
-<p>${blog.content}</p>
-
+<h3>📝 ${escapeHtml(blog.title)}</h3>
+<p>${escapeHtml(blog.content).replace(/\n/g,"<br>")}</p>
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+</div>
 `;
 
 document
@@ -1520,168 +1469,65 @@ localStorage.getItem("pamsaPhotos") || "[]"
 
 savedPhotos.forEach(function(photo){
 
-const card =
-document
-.createElement("div");
-
+const card = document.createElement("div");
 card.className="gallery-card";
 
+const image = typeof photo === "string" ? photo : photo.image;
+const caption = typeof photo === "string" ? "PAMSA CHAI Memory" : photo.caption;
+
 card.innerHTML=`
-
-<img src="${photo}">
-
+<img src="${image}" alt="${escapeHtml(caption)}">
 <div class="gallery-caption">
-
-PAMSA CHAI Memory
-
+${escapeHtml(caption)}
+<div class="admin-actions">
+<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
 </div>
-
+</div>
 `;
 
-document
-.getElementById("galleryList")
-.appendChild(card);
+document.getElementById("galleryList").appendChild(card);
 
 });
 
 };
 
 
-/* =========================
-   CONTACT FORM → SUPABASE
-========================= */
 
-async function sendMessage(event){
+function escapeHtml(value){
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+function clearBlogs(){
+  if(confirm("Clear all saved blogs from this browser?")){
+    localStorage.removeItem("pamsaBlogs");
+    document.getElementById("blogList").innerHTML="";
+    alert("Saved blogs cleared.");
+  }
+}
+
+function clearGallery(){
+  if(confirm("Clear all saved gallery photos from this browser?")){
+    localStorage.removeItem("pamsaPhotos");
+    document.getElementById("galleryList").innerHTML="";
+    alert("Saved gallery cleared.");
+  }
+}
+
+
+/* CONTACT FORM */
+
+function sendMessage(event){
 
 event.preventDefault();
 
-const name =
-document
-.getElementById("contactName")
-.value
-.trim();
-
-const email =
-document
-.getElementById("contactEmail")
-.value
-.trim();
-
-const phone =
-document
-.getElementById("contactPhone")
-.value
-.trim();
-
-const message =
-document
-.getElementById("contactMessage")
-.value
-.trim();
-
-const formStatus =
-document
-.getElementById("formStatus");
-
-const submitButton =
-document
-.getElementById("submitButton");
-
-
-formStatus.className="form-status";
-
-formStatus.innerText="Sending your message...";
-
-formStatus.style.display="block";
-
-submitButton.disabled=true;
-
-submitButton.innerText="SENDING...";
-
-
-try{
-
-const response =
-await fetch(
-
-`${SUPABASE_URL}/rest/v1/contact_messages`,
-
-{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"application/json",
-
-"apikey":SUPABASE_ANON_KEY,
-
-"Authorization":
-`Bearer ${SUPABASE_ANON_KEY}`,
-
-"Prefer":"return=minimal"
-
-},
-
-body:JSON.stringify({
-
-name:name,
-
-email:email,
-
-phone:phone,
-
-message:message
-
-})
-
-}
-
+alert(
+"Thank you! Your message has been received by PAMSA CHAI."
 );
-
-
-if(!response.ok){
-
-const errorText =
-await response.text();
-
-throw new Error(errorText);
-
-}
-
-
-formStatus.className=
-"form-status form-success";
-
-formStatus.innerText=
-"Thank you! Your message has been received by PAMSA CHAI ☕";
-
-
-document
-.getElementById("contactForm")
-.reset();
-
-}
-
-catch(error){
-
-console.error("Supabase Error:",error);
-
-formStatus.className=
-"form-status form-error";
-
-formStatus.innerText=
-"Something went wrong. Please try again.";
-
-}
-
-finally{
-
-submitButton.disabled=false;
-
-submitButton.innerText="SEND MESSAGE";
-
-}
 
 }
 
