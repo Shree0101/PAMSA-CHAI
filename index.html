@@ -80,7 +80,7 @@ header {
 .nav-links a {
     text-decoration: none;
     color: var(--brown);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -94,10 +94,6 @@ header {
     color: var(--dark-brown) !important;
     padding: 14px 22px;
     border-radius: 8px;
-}
-
-.franchise-btn:hover {
-    transform: translateY(-2px);
 }
 
 .menu-btn {
@@ -120,6 +116,7 @@ header {
         rgba(35, 17, 10, 0.65),
         rgba(35, 17, 10, 0.65)
     ),
+
     url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=2000&q=85");
 
     background-size: cover;
@@ -131,6 +128,7 @@ header {
     margin: auto;
     padding: 50px 25px;
     color: white;
+    width: 100%;
 }
 
 .hero-content h1 {
@@ -272,7 +270,6 @@ section {
     color: var(--brown);
     font-size: 42px;
     margin-bottom: 20px;
-    font-weight: bold;
 }
 
 .founder-card h3 {
@@ -417,6 +414,11 @@ section {
     font-size: 16px;
 }
 
+.add-content textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
 .add-content button {
     background: var(--gold);
     border: none;
@@ -453,7 +455,6 @@ section {
 
 .contact-info a {
     color: white;
-    text-decoration: none;
 }
 
 .contact-form {
@@ -487,6 +488,11 @@ section {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 
 /* ================= MAP ================= */
@@ -546,6 +552,10 @@ footer {
     color: var(--gold);
 }
 
+.footer-column p {
+    line-height: 1.8;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.2);
     margin-top: 50px;
@@ -578,10 +588,6 @@ footer {
         display: flex;
     }
 
-    .nav-links a {
-        font-size: 16px;
-    }
-
     .story {
         grid-template-columns: 1fr;
     }
@@ -605,7 +611,6 @@ footer {
     .footer-grid {
         grid-template-columns: 1fr;
     }
-
 }
 
 @media(max-width: 550px) {
@@ -638,7 +643,6 @@ footer {
     .contact-form {
         padding: 25px;
     }
-
 }
 
 </style>
@@ -803,22 +807,19 @@ Five people. One family. One dream.
 <p>
 PAMSA CHAI was born from a simple thought —
 that chai is never just a beverage.
+</p>
 
+<p>
 It is a pause in a busy day.
-
 A conversation between friends.
-
 A memory shared with family.
-
 A small moment that feels special.
 </p>
 
 <p>
 The name PAMSA represents the five people
 and five energies behind this dream.
-
 Different personalities.
-
 One shared vision.
 </p>
 
@@ -853,9 +854,7 @@ class="founders-section">
 
 <div class="founder-card">
 
-<div class="founder-photo">
-P
-</div>
+<div class="founder-photo">P</div>
 
 <h3>Padmakar</h3>
 
@@ -865,9 +864,7 @@ P
 
 <div class="founder-card">
 
-<div class="founder-photo">
-M
-</div>
+<div class="founder-photo">M</div>
 
 <h3>Madhuri</h3>
 
@@ -877,9 +874,7 @@ M
 
 <div class="founder-card">
 
-<div class="founder-photo">
-S
-</div>
+<div class="founder-photo">S</div>
 
 <h3>Shravani</h3>
 
@@ -889,9 +884,7 @@ S
 
 <div class="founder-card">
 
-<div class="founder-photo">
-A
-</div>
+<div class="founder-photo">A</div>
 
 <h3>Atharva</h3>
 
@@ -901,9 +894,7 @@ A
 
 <div class="founder-card">
 
-<div class="founder-photo">
-A
-</div>
+<div class="founder-photo">A</div>
 
 <h3>Apurva</h3>
 
@@ -933,7 +924,8 @@ A
 <div class="product-card">
 
 <img
-src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=80">
+src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=80"
+alt="Masala Chai">
 
 <div class="product-info">
 
@@ -950,7 +942,8 @@ A warm blend of tea, spices and tradition.
 <div class="product-card">
 
 <img
-src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80">
+src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80"
+alt="Black Tea">
 
 <div class="product-info">
 
@@ -967,7 +960,8 @@ Bold, rich and full of character.
 <div class="product-card">
 
 <img
-src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80">
+src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80"
+alt="Green Tea">
 
 <div class="product-info">
 
@@ -984,7 +978,8 @@ Light, refreshing and naturally soothing.
 <div class="product-card">
 
 <img
-src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80">
+src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80"
+alt="Ginger Tea">
 
 <div class="product-info">
 
@@ -1001,7 +996,8 @@ A refreshing kick of natural ginger.
 <div class="product-card">
 
 <img
-src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80">
+src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80"
+alt="Coffee">
 
 <div class="product-info">
 
@@ -1151,7 +1147,8 @@ id="blogGrid">
 <div class="blog-card">
 
 <img
-src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80">
+src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
+alt="Chai">
 
 <div class="blog-content">
 
@@ -1168,7 +1165,8 @@ Some conversations begin with a simple cup of chai.
 <div class="blog-card">
 
 <img
-src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=80">
+src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=80"
+alt="PAMSA">
 
 <div class="blog-content">
 
@@ -1246,47 +1244,28 @@ ADD BLOG
 <h2>CONNECT WITH PAMSA</h2>
 
 <p>
-
 <strong>Atharva Padmakar Dikshe</strong><br>
-
 📞 8329154376<br>
-
 📧
-
-<a
-href="mailto:shriiatharva@gmail.com">
-
+<a href="mailto:shriiatharva@gmail.com">
 shriiatharva@gmail.com
-
 </a>
-
 </p>
 
 <p>
-
 <strong>Apurva Atharva Dikshe</strong><br>
-
 📞 9767324239<br>
-
 📧
-
-<a
-href="mailto:apurvavenikar38@gmail.com">
-
+<a href="mailto:apurvavenikar38@gmail.com">
 apurvavenikar38@gmail.com
-
 </a>
-
 </p>
 
 <p>
-
 📍 Pune, Maharashtra, India
-
 </p>
 
 </div>
-
 
 <div class="contact-form">
 
@@ -1330,15 +1309,11 @@ SEND MESSAGE
 
 </div>
 
-
 <div class="map">
 
 <iframe
-
 src="https://www.google.com/maps?q=Shivajinagar%20Pune%20Maharashtra&output=embed"
-
 loading="lazy">
-
 </iframe>
 
 </div>
@@ -1359,11 +1334,9 @@ src="pamsa-logo.png.png"
 alt="PAMSA CHAI">
 
 <p>
-
 PAMSA CHAI is a family dream built around
 the warmth, taste and memories created by
 a simple cup of chai.
-
 </p>
 
 </div>
@@ -1387,25 +1360,17 @@ a simple cup of chai.
 <h3>CONTACT US</h3>
 
 <p>
-
 Atharva Padmakar Dikshe<br>
-
 📞 8329154376<br>
-
 📧 shriiatharva@gmail.com
-
 </p>
 
 <br>
 
 <p>
-
 Apurva Atharva Dikshe<br>
-
 📞 9767324239<br>
-
 📧 apurvavenikar38@gmail.com
-
 </p>
 
 </div>
@@ -1440,7 +1405,7 @@ function toggleMenu() {
 const SUPABASE_URL =
 "https://sebfxpsrjzhnrrtpbvuo.supabase.co";
 
-const SUPABASE_PUBLISHABLE_KEY =
+const SUPABASE_ANON_KEY =
 "sb_publishable_GNstyoJ3QpBVLLcqJCpo9A_7AddF2ND";
 
 
@@ -1451,81 +1416,67 @@ async function submitContactForm(event) {
     event.preventDefault();
 
     const button =
-        document.querySelector(
-            "#contactForm button"
-        );
+        document.querySelector("#contactForm button");
 
     const name =
-        document
-        .getElementById("name")
-        .value
-        .trim();
+        document.getElementById("name").value.trim();
 
     const email =
-        document
-        .getElementById("email")
-        .value
-        .trim();
+        document.getElementById("email").value.trim();
 
     const phone =
-        document
-        .getElementById("phone")
-        .value
-        .trim();
+        document.getElementById("phone").value.trim();
 
     const message =
-        document
-        .getElementById("message")
-        .value
-        .trim();
+        document.getElementById("message").value.trim();
 
     button.disabled = true;
 
-    button.innerText =
-        "SENDING...";
-
+    button.innerText = "SENDING...";
 
     try {
 
-        const response =
-            await fetch(
+        const response = await fetch(
 
-                SUPABASE_URL +
-                "/rest/v1/contact_messages",
+            SUPABASE_URL +
+            "/rest/v1/contact_messages",
 
-                {
+            {
 
-                    method: "POST",
+                method: "POST",
 
-                    headers: {
+                headers: {
 
-                        "Content-Type":
-                        "application/json",
+                    "Content-Type":
+                    "application/json",
 
-                        "apikey":
-                        SUPABASE_PUBLISHABLE_KEY,
+                    "apikey":
+                    SUPABASE_ANON_KEY,
 
-                        "Prefer":
-                        "return=minimal"
+                    "Authorization":
+                    "Bearer " +
+                    SUPABASE_ANON_KEY,
 
-                    },
+                    "Prefer":
+                    "return=minimal"
 
-                    body:
-                    JSON.stringify({
+                },
 
-                        name: name,
+                body: JSON.stringify({
 
-                        email: email,
+                    name: name,
 
-                        phone: phone,
+                    email: email,
 
-                        message: message
+                    phone: phone,
 
-                    })
+                    message: message
 
-                }
+                })
 
-            );
+            }
+
+        );
 
 
         if (response.ok) {
@@ -1535,9 +1486,7 @@ async function submitContactForm(event) {
             );
 
             document
-                .getElementById(
-                    "contactForm"
-                )
+                .getElementById("contactForm")
                 .reset();
 
         }
@@ -1547,7 +1496,10 @@ async function submitContactForm(event) {
             const error =
                 await response.text();
 
-            console.error(error);
+            console.error(
+                "SUPABASE ERROR:",
+                error
+            );
 
             alert(
                 "Message save failed ❌\n\n" +
@@ -1560,10 +1512,14 @@ async function submitContactForm(event) {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            "CONNECTION ERROR:",
+            error
+        );
 
         alert(
-            "Database connection failed ❌"
+            "Database connection failed ❌\n\n" +
+            error.message
         );
 
     }
@@ -1596,7 +1552,6 @@ function addBlog() {
         document
         .getElementById("blogImage");
 
-
     if (!title || !text) {
 
         alert(
@@ -1607,37 +1562,24 @@ function addBlog() {
 
     }
 
-
-    const reader =
-        new FileReader();
-
-
-    reader.onload =
-        function(event) {
+    const createBlogCard =
+        function(imageSource) {
 
             const blogGrid =
                 document
-                .getElementById(
-                    "blogGrid"
-                );
-
+                .getElementById("blogGrid");
 
             const card =
-                document
-                .createElement(
-                    "div"
-                );
-
+                document.createElement("div");
 
             card.className =
                 "blog-card";
 
-
             card.innerHTML = `
 
                 <img
-                src="${event.target.result}"
-                alt="Blog Image">
+                src="${imageSource}"
+                alt="${title}">
 
                 <div
                 class="blog-content">
@@ -1654,36 +1596,22 @@ function addBlog() {
 
             `;
 
-
-            blogGrid
-                .appendChild(
-                    card
-                );
-
+            blogGrid.appendChild(card);
 
             document
-                .getElementById(
-                    "blogTitle"
-                )
+                .getElementById("blogTitle")
                 .value = "";
-
 
             document
-                .getElementById(
-                    "blogText"
-                )
+                .getElementById("blogText")
                 .value = "";
-
 
             document
-                .getElementById(
-                    "blogImage"
-                )
+                .getElementById("blogImage")
                 .value = "";
-
 
             alert(
-                "Blog added successfully!"
+                "Blog added successfully! ☕"
             );
 
         };
@@ -1694,6 +1622,18 @@ function addBlog() {
         imageInput.files[0]
     ) {
 
+        const reader =
+            new FileReader();
+
+        reader.onload =
+            function(event) {
+
+                createBlogCard(
+                    event.target.result
+                );
+
+            };
+
         reader.readAsDataURL(
             imageInput.files[0]
         );
@@ -1702,16 +1642,11 @@ function addBlog() {
 
     else {
 
-        reader.onload({
+        createBlogCard(
 
-            target: {
+            "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
 
-                result:
-                "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
-
-            }
-
-        });
+        );
 
     }
 
