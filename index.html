@@ -53,31 +53,12 @@ header{
 .logo{
   display:flex;
   align-items:center;
-  gap:10px;
-  font-size:25px;
-  font-weight:bold;
-  color:var(--brown);
 }
 
-.logo-icon{
-  width:52px;
-  height:52px;
-  border-radius:18px 18px 18px 4px;
-  background:linear-gradient(135deg,var(--brown),var(--orange));
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:28px;
-  box-shadow:0 8px 18px #542b1f44;
-  transform:rotate(-8deg);
-}
-.logo-icon span{
-  transform:rotate(8deg);
-}
-
-.logo span{
-  color:var(--gold);
+.logo img{
+  width:150px;
+  height:auto;
+  display:block;
 }
 
 .nav-links{
@@ -380,7 +361,7 @@ section{
   margin-bottom:15px;
 }
 
-/* BLOG + GALLERY */
+/* BLOG GALLERY */
 
 .blog-gallery{
   background:var(--light);
@@ -397,6 +378,12 @@ section{
 .admin-panel h3{
   color:var(--brown);
   margin-bottom:15px;
+}
+
+.admin-note{
+  color:#765e51;
+  line-height:1.6;
+  margin-bottom:10px;
 }
 
 .add-form{
@@ -469,6 +456,28 @@ textarea{
   color:var(--brown);
 }
 
+.btn-danger{
+  background:#8f2d22;
+  color:white;
+}
+
+.admin-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+.small-btn{
+  border:0;
+  cursor:pointer;
+  padding:8px 12px;
+  border-radius:6px;
+  background:#8f2d22;
+  color:white;
+  font-weight:bold;
+}
+
 /* CONTACT */
 
 .contact{
@@ -503,6 +512,28 @@ textarea{
   gap:15px;
 }
 
+.form-status{
+  padding:12px;
+  border-radius:8px;
+  display:none;
+  text-align:center;
+  font-weight:bold;
+}
+
+.form-success{
+  display:block;
+  color:#166534;
+  background:#dcfce7;
+}
+
+.form-error{
+  display:block;
+  color:#991b1b;
+  background:#fee2e2;
+}
+
+/* MAP */
+
 .map{
   margin-top:50px;
   height:350px;
@@ -528,6 +559,14 @@ footer{
   display:grid;
   grid-template-columns:2fr 1fr 1fr 1fr;
   gap:40px;
+}
+
+.footer-logo img{
+  width:150px;
+  background:white;
+  border-radius:10px;
+  padding:8px;
+  margin-bottom:20px;
 }
 
 footer h3{
@@ -633,6 +672,10 @@ footer a{
     font-size:50px;
   }
 
+  .logo img{
+    width:125px;
+  }
+
   .founder-grid,
   .products,
   .stats,
@@ -659,8 +702,12 @@ footer a{
 <nav class="navbar">
 
 <div class="logo">
-<div class="logo-icon"><span>☕</span></div>
-PAMSA <span>CHAI</span>
+
+<img
+src="pamsa-logo.png.png"
+alt="PAMSA CHAI Logo"
+>
+
 </div>
 
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
@@ -840,7 +887,6 @@ Rich tea blended with aromatic Indian spices.
 
 </div>
 
-
 <div class="product-card">
 
 <div class="product-img"
@@ -854,7 +900,6 @@ Bold, rich and full of character.
 </p>
 
 </div>
-
 
 <div class="product-card">
 
@@ -870,7 +915,6 @@ Light, refreshing and naturally calming.
 
 </div>
 
-
 <div class="product-card">
 
 <div class="product-img"
@@ -884,7 +928,6 @@ A warm cup with a natural ginger kick.
 </p>
 
 </div>
-
 
 <div class="product-card">
 
@@ -991,14 +1034,13 @@ Stories, memories, updates and moments from PAMSA CHAI.
 
 </div>
 
-
-<!-- ADD BLOG -->
-
 <div class="admin-panel">
 
 <h3>📝 Add New Blog</h3>
-<p class="admin-note">Publish a story, update, offer or PAMSA CHAI memory. It will be saved in this browser.</p>
-<p class="admin-note"><strong>Note:</strong> This GitHub Pages version saves content locally on the device/browser. Later we can connect a cloud database so every visitor sees the same posts and photos.</p>
+
+<p class="admin-note">
+Publish a story, update, offer or PAMSA CHAI memory.
+</p>
 
 <form class="add-form" onsubmit="addBlog(event)">
 
@@ -1019,7 +1061,11 @@ required
 ADD BLOG
 </button>
 
-<button class="btn btn-danger" type="button" onclick="clearBlogs()">
+<button
+class="btn btn-danger"
+type="button"
+onclick="clearBlogs()"
+>
 CLEAR SAVED BLOGS
 </button>
 
@@ -1027,8 +1073,6 @@ CLEAR SAVED BLOGS
 
 </div>
 
-
-<!-- BLOG LIST -->
 
 <div class="blog-grid" id="blogList">
 
@@ -1049,26 +1093,42 @@ This is where our journey begins.
 <br><br>
 
 
-<!-- ADD GALLERY -->
-
 <div class="admin-panel">
 
 <h3>📸 Add Photo From Your Laptop</h3>
 
-<p>
-Choose a photo from your laptop. Add a caption and it will appear in the PAMSA Gallery.
+<p class="admin-note">
+Choose a photo from your laptop.
+Add a caption and it will appear in the PAMSA Gallery.
 </p>
 
 <div class="add-form">
-<input type="text" id="photoCaption" placeholder="Photo caption e.g. Our First Chai Memory">
-<input type="file" id="photoInput" accept="image/*" onchange="addPhoto(event)">
-<button class="btn btn-danger" type="button" onclick="clearGallery()">CLEAR SAVED GALLERY</button>
-</div>
+
+<input
+type="text"
+id="photoCaption"
+placeholder="Photo caption"
+>
+
+<input
+type="file"
+id="photoInput"
+accept="image/*"
+onchange="addPhoto(event)"
+>
+
+<button
+class="btn btn-danger"
+type="button"
+onclick="clearGallery()"
+>
+CLEAR SAVED GALLERY
+</button>
 
 </div>
 
+</div>
 
-<!-- GALLERY -->
 
 <div class="gallery-grid" id="galleryList">
 
@@ -1105,7 +1165,6 @@ We would love to hear from you.
 
 <div class="contact-grid">
 
-
 <div class="contact-info">
 
 <h3>CONNECT WITH PAMSA</h3>
@@ -1131,34 +1190,40 @@ We would love to hear from you.
 
 <form
 class="contact-form"
+id="contactForm"
 onsubmit="sendMessage(event)"
 >
 
 <input
 type="text"
+id="contactName"
 placeholder="Your Name"
 required
 >
 
 <input
 type="email"
+id="contactEmail"
 placeholder="Your Email"
 required
 >
 
 <input
 type="tel"
+id="contactPhone"
 placeholder="Phone Number"
 required
 >
 
 <textarea
+id="contactMessage"
 placeholder="Your Message"
 required
 ></textarea>
 
 <button
 class="btn"
+id="submitButton"
 type="submit"
 >
 
@@ -1166,12 +1231,15 @@ SEND MESSAGE
 
 </button>
 
+<p
+id="formStatus"
+class="form-status"
+></p>
+
 </form>
 
 </div>
 
-
-<!-- TEMPORARY MAP -->
 
 <div class="map">
 
@@ -1192,7 +1260,14 @@ src="https://www.google.com/maps?q=Shivajinagar,Pune,Maharashtra&output=embed">
 
 <div>
 
-<h3>☕ PAMSA CHAI</h3>
+<div class="footer-logo">
+
+<img
+src="pamsa-logo.png.png"
+alt="PAMSA CHAI Logo"
+>
+
+</div>
 
 <p>
 
@@ -1222,11 +1297,8 @@ A thousand stories waiting to be brewed.
 <ul>
 
 <li><a href="#home">Home</a></li>
-
 <li><a href="#about">About Us</a></li>
-
 <li><a href="#products">Products</a></li>
-
 <li><a href="#founders">Our Founders</a></li>
 
 </ul>
@@ -1241,11 +1313,8 @@ A thousand stories waiting to be brewed.
 <ul>
 
 <li><a href="#franchise">Franchises</a></li>
-
 <li><a href="#blog">Our Blog</a></li>
-
 <li><a href="#blog">Gallery</a></li>
-
 <li><a href="#contact">Contact Us</a></li>
 
 </ul>
@@ -1258,13 +1327,9 @@ A thousand stories waiting to be brewed.
 <h3>CONTACT US</h3>
 
 <p>📧 shriiatharva@gmail.com</p>
-
 <p>📧 apurvavenikar38@gmail.com</p>
-
 <p>📞 8329154376</p>
-
 <p>📞 9767324239</p>
-
 <p>📍 Pune, Maharashtra</p>
 
 </div>
@@ -1283,47 +1348,34 @@ A thousand stories waiting to be brewed.
 
 <script>
 
+/* =========================
+   SUPABASE CONFIG
+========================= */
+
+const SUPABASE_URL =
+"https://sebfxpsrjzhnrrtpbvuo.supabase.co";
+
+const SUPABASE_ANON_KEY =
+"PASTE_YOUR_PUBLISHABLE_KEY_HERE";
 
 
-.admin-note{
-  color:#765e51;
-  line-height:1.6;
-  margin-bottom:10px;
-}
-.btn-danger{
-  background:#8f2d22;
-  color:white;
-}
-.admin-actions{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:15px;
-}
-.small-btn{
-  border:0;
-  cursor:pointer;
-  padding:8px 12px;
-  border-radius:6px;
-  background:#8f2d22;
-  color:white;
-  font-weight:bold;
-}
-
-/* MOBILE MENU */
+/* =========================
+   MOBILE MENU
+========================= */
 
 function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("active");
+
+document
+.getElementById("navLinks")
+.classList
+.toggle("active");
+
 }
 
-document.querySelectorAll(".nav-links a").forEach(function(link){
-  link.addEventListener("click", function(){
-    document.getElementById("navLinks").classList.remove("active");
-  });
-});
 
-
-/* ADD BLOG */
+/* =========================
+   BLOG
+========================= */
 
 function addBlog(event){
 
@@ -1332,12 +1384,14 @@ event.preventDefault();
 const title =
 document
 .getElementById("blogTitle")
-.value;
+.value
+.trim();
 
 const content =
 document
 .getElementById("blogContent")
-.value;
+.value
+.trim();
 
 const blogList =
 document
@@ -1350,11 +1404,22 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
+
 <h3>📝 ${escapeHtml(title)}</h3>
+
 <p>${escapeHtml(content).replace(/\n/g,"<br>")}</p>
+
 <div class="admin-actions">
-<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+
+<button
+class="small-btn"
+onclick="this.closest('.blog-card').remove()"
+>
+REMOVE
+</button>
+
 </div>
+
 `;
 
 blogList.prepend(card);
@@ -1365,8 +1430,11 @@ localStorage.getItem("pamsaBlogs") || "[]"
 );
 
 savedBlogs.unshift({
+
 title:title,
+
 content:content
+
 });
 
 localStorage.setItem(
@@ -1387,40 +1455,100 @@ alert("Blog added successfully!");
 }
 
 
-/* ADD PHOTO FROM LAPTOP */
+/* =========================
+   GALLERY
+========================= */
 
 function addPhoto(event){
 
-const file = event.target.files[0];
-if(!file) return;
+const file =
+event
+.target
+.files[0];
 
-const caption = document.getElementById("photoCaption").value.trim() || "PAMSA CHAI Memory";
-const reader = new FileReader();
+if(!file){
+
+return;
+
+}
+
+const caption =
+document
+.getElementById("photoCaption")
+.value
+.trim()
+||
+"PAMSA CHAI Memory";
+
+const reader =
+new FileReader();
 
 reader.onload=function(e){
 
-const gallery = document.getElementById("galleryList");
-const card = document.createElement("div");
+const gallery =
+document
+.getElementById("galleryList");
+
+const card =
+document
+.createElement("div");
+
 card.className="gallery-card";
 
 card.innerHTML=`
-<img src="${e.target.result}" alt="${escapeHtml(caption)}">
+
+<img
+src="${e.target.result}"
+alt="${escapeHtml(caption)}"
+>
+
 <div class="gallery-caption">
+
 ${escapeHtml(caption)}
+
 <div class="admin-actions">
-<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
+
+<button
+class="small-btn"
+onclick="this.closest('.gallery-card').remove()"
+>
+REMOVE
+</button>
+
 </div>
+
 </div>
+
 `;
 
 gallery.prepend(card);
 
-const savedPhotos = JSON.parse(localStorage.getItem("pamsaPhotos") || "[]");
-savedPhotos.unshift({image:e.target.result, caption:caption});
-localStorage.setItem("pamsaPhotos", JSON.stringify(savedPhotos));
+const savedPhotos =
+JSON.parse(
+localStorage.getItem("pamsaPhotos") || "[]"
+);
 
-document.getElementById("photoCaption").value="";
-document.getElementById("photoInput").value="";
+savedPhotos.unshift({
+
+image:e.target.result,
+
+caption:caption
+
+});
+
+localStorage.setItem(
+"pamsaPhotos",
+JSON.stringify(savedPhotos)
+);
+
+document
+.getElementById("photoCaption")
+.value="";
+
+document
+.getElementById("photoInput")
+.value="";
+
 alert("Photo added to PAMSA Gallery!");
 
 };
@@ -1430,7 +1558,9 @@ reader.readAsDataURL(file);
 }
 
 
-/* LOAD SAVED BLOGS */
+/* =========================
+   LOAD BLOGS AND PHOTOS
+========================= */
 
 window.onload=function(){
 
@@ -1448,11 +1578,24 @@ document
 card.className="blog-card";
 
 card.innerHTML=`
+
 <h3>📝 ${escapeHtml(blog.title)}</h3>
-<p>${escapeHtml(blog.content).replace(/\n/g,"<br>")}</p>
+
+<p>
+${escapeHtml(blog.content).replace(/\n/g,"<br>")}
+</p>
+
 <div class="admin-actions">
-<button class="small-btn" onclick="this.closest('.blog-card').remove()">REMOVE</button>
+
+<button
+class="small-btn"
+onclick="this.closest('.blog-card').remove()"
+>
+REMOVE
+</button>
+
 </div>
+
 `;
 
 document
@@ -1469,65 +1612,271 @@ localStorage.getItem("pamsaPhotos") || "[]"
 
 savedPhotos.forEach(function(photo){
 
-const card = document.createElement("div");
+const card =
+document
+.createElement("div");
+
 card.className="gallery-card";
 
-const image = typeof photo === "string" ? photo : photo.image;
-const caption = typeof photo === "string" ? "PAMSA CHAI Memory" : photo.caption;
+const image =
+typeof photo === "string"
+? photo
+: photo.image;
+
+const caption =
+typeof photo === "string"
+? "PAMSA CHAI Memory"
+: photo.caption;
 
 card.innerHTML=`
-<img src="${image}" alt="${escapeHtml(caption)}">
+
+<img
+src="${image}"
+alt="${escapeHtml(caption)}"
+>
+
 <div class="gallery-caption">
+
 ${escapeHtml(caption)}
+
 <div class="admin-actions">
-<button class="small-btn" onclick="this.closest('.gallery-card').remove()">REMOVE</button>
+
+<button
+class="small-btn"
+onclick="this.closest('.gallery-card').remove()"
+>
+REMOVE
+</button>
+
 </div>
+
 </div>
+
 `;
 
-document.getElementById("galleryList").appendChild(card);
+document
+.getElementById("galleryList")
+.appendChild(card);
 
 });
 
 };
 
 
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHtml(value){
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+
+return String(value)
+
+.replace(/&/g,"&amp;")
+
+.replace(/</g,"&lt;")
+
+.replace(/>/g,"&gt;")
+
+.replace(/"/g,"&quot;")
+
+.replace(/'/g,"&#039;");
+
 }
+
+
+/* =========================
+   CLEAR BLOGS
+========================= */
 
 function clearBlogs(){
-  if(confirm("Clear all saved blogs from this browser?")){
-    localStorage.removeItem("pamsaBlogs");
-    document.getElementById("blogList").innerHTML="";
-    alert("Saved blogs cleared.");
-  }
+
+if(
+confirm(
+"Clear all saved blogs from this browser?"
+)
+){
+
+localStorage.removeItem("pamsaBlogs");
+
+document
+.getElementById("blogList")
+.innerHTML="";
+
+alert("Saved blogs cleared.");
+
 }
+
+}
+
+
+/* =========================
+   CLEAR GALLERY
+========================= */
 
 function clearGallery(){
-  if(confirm("Clear all saved gallery photos from this browser?")){
-    localStorage.removeItem("pamsaPhotos");
-    document.getElementById("galleryList").innerHTML="";
-    alert("Saved gallery cleared.");
-  }
+
+if(
+confirm(
+"Clear all saved gallery photos from this browser?"
+)
+){
+
+localStorage.removeItem("pamsaPhotos");
+
+document
+.getElementById("galleryList")
+.innerHTML="";
+
+alert("Saved gallery cleared.");
+
+}
+
 }
 
 
-/* CONTACT FORM */
+/* =========================
+   CONTACT FORM → SUPABASE
+========================= */
 
-function sendMessage(event){
+async function sendMessage(event){
 
 event.preventDefault();
 
-alert(
-"Thank you! Your message has been received by PAMSA CHAI."
+const name =
+document
+.getElementById("contactName")
+.value
+.trim();
+
+const email =
+document
+.getElementById("contactEmail")
+.value
+.trim();
+
+const phone =
+document
+.getElementById("contactPhone")
+.value
+.trim();
+
+const message =
+document
+.getElementById("contactMessage")
+.value
+.trim();
+
+const formStatus =
+document
+.getElementById("formStatus");
+
+const submitButton =
+document
+.getElementById("submitButton");
+
+
+formStatus.className="form-status";
+
+formStatus.innerText=
+"Sending your message...";
+
+formStatus.style.display="block";
+
+submitButton.disabled=true;
+
+submitButton.innerText="SENDING...";
+
+
+try{
+
+const response =
+await fetch(
+
+`${SUPABASE_URL}/rest/v1/contact_messages`,
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":
+"application/json",
+
+"apikey":
+SUPABASE_ANON_KEY,
+
+"Authorization":
+`Bearer ${SUPABASE_ANON_KEY}`,
+
+"Prefer":
+"return=minimal"
+
+},
+
+body:JSON.stringify({
+
+name:name,
+
+email:email,
+
+phone:phone,
+
+message:message
+
+})
+
+}
+
 );
+
+
+if(!response.ok){
+
+const errorText =
+await response.text();
+
+throw new Error(errorText);
+
+}
+
+
+formStatus.className=
+"form-status form-success";
+
+formStatus.innerText=
+"Thank you! Your message has been received by PAMSA CHAI ☕";
+
+
+document
+.getElementById("contactForm")
+.reset();
+
+}
+
+catch(error){
+
+console.error(
+"Supabase Error:",
+error
+);
+
+formStatus.className=
+"form-status form-error";
+
+formStatus.innerText=
+"Message save झाला नाही. Please try again.";
+
+}
+
+finally{
+
+submitButton.disabled=false;
+
+submitButton.innerText=
+"SEND MESSAGE";
+
+}
 
 }
 
