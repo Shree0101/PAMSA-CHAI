@@ -330,10 +330,16 @@ section{
     cursor:pointer;
 }
 
+.contact-form button:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
 #formMessage{
     margin-top:20px;
     text-align:center;
     font-weight:bold;
+    line-height:1.6;
 }
 
 /* MAP */
@@ -813,15 +819,35 @@ apurvavenikar38@gmail.com</p>
 
 <form id="contactForm">
 
-<input type="text" id="name" placeholder="Your Name" required>
+<input
+type="text"
+id="name"
+placeholder="Your Name"
+required>
 
-<input type="email" id="email" placeholder="Your Email" required>
+<input
+type="email"
+id="email"
+placeholder="Your Email"
+required>
 
-<input type="text" id="phone" placeholder="Phone Number">
+<input
+type="text"
+id="phone"
+placeholder="Phone Number">
 
-<textarea id="message" placeholder="Your Message" required></textarea>
+<textarea
+id="message"
+placeholder="Your Message"
+required></textarea>
 
-<button type="submit">SEND MESSAGE</button>
+<button
+type="submit"
+id="submitButton">
+
+SEND MESSAGE
+
+</button>
 
 </form>
 
@@ -854,7 +880,10 @@ loading="lazy">
 
 <div>
 
-<img src="pamsa-logo.png.png" class="footer-logo">
+<img
+src="pamsa-logo.png.png"
+class="footer-logo"
+alt="PAMSA CHAI Logo">
 
 <p>
 PAMSA CHAI is a family dream built around the warmth, conversations and happiness created by a good cup of chai.
@@ -925,7 +954,7 @@ const SUPABASE_URL =
 "https://sebfxpsrjzhnrrtpbvuo.supabase.co";
 
 const SUPABASE_KEY =
-"SUPABASE_KEY_HERE";
+"sb_publishable_GNstyoJ3QpBVLLcqJCpo9A_7AddF2ND";
 
 
 /* CONTACT FORM */
@@ -939,30 +968,39 @@ document
     const formMessage =
     document.getElementById("formMessage");
 
+    const submitButton =
+    document.getElementById("submitButton");
+
     formMessage.innerHTML =
     "Saving message...";
+
+    submitButton.disabled = true;
 
     const data = {
 
         name:
         document
         .getElementById("name")
-        .value,
+        .value
+        .trim(),
 
         email:
         document
         .getElementById("email")
-        .value,
+        .value
+        .trim(),
 
         phone:
         document
         .getElementById("phone")
-        .value,
+        .value
+        .trim(),
 
         message:
         document
         .getElementById("message")
         .value
+        .trim()
 
     };
 
@@ -1002,7 +1040,9 @@ document
             const errorText =
             await response.text();
 
-            throw new Error(errorText);
+            throw new Error(
+                `HTTP ${response.status}: ${errorText}`
+            );
 
         }
 
@@ -1015,13 +1055,24 @@ document
         .reset();
 
 
-    }catch(error){
+    }
 
-        console.error(error);
+    catch(error){
+
+        console.error(
+            "Supabase Error:",
+            error
+        );
 
         formMessage.innerHTML =
         "Message save failed ❌<br>" +
         error.message;
+
+    }
+
+    finally{
+
+        submitButton.disabled = false;
 
     }
 
