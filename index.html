@@ -1,784 +1,1438 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PAMSA CHAI | One Family. One Dream. One Cup.</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PAMSA CHAI | One Cup. Many Stories.</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial, sans-serif;
-    background:#fffaf3;
-    color:#2b1710;
+html {
+    scroll-behavior: smooth;
 }
 
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:#fffaf3;
-    box-shadow:0 3px 15px rgba(0,0,0,.15);
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fffaf3;
+    color: #2b1710;
 }
 
-.navbar{
-    max-width:1250px;
-    margin:auto;
-    height:95px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:10px 25px;
+:root {
+    --brown: #321811;
+    --dark-brown: #1e0f0a;
+    --gold: #e9a51c;
+    --cream: #fffaf3;
+    --light: #f5eadb;
+    --white: #ffffff;
 }
 
-.logo{
-    height:78px;
-    width:auto;
+/* ================= HEADER ================= */
+
+header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(255, 250, 243, 0.97);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+
 }
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:28px;
+.navbar {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    min-height: 88px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 10px 25px;
+
 }
 
-.nav-links a{
-    text-decoration:none;
-    color:#291810;
-    font-weight:bold;
-    font-size:15px;
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
 }
 
-.nav-links a:hover{
-    color:#e4a11b;
+.logo img {
+
+    width: 105px;
+
+    height: 70px;
+
+    object-fit: contain;
+
 }
 
-.franchise-btn{
-    background:#e9a51e;
-    color:#21140e !important;
-    padding:15px 23px;
-    border-radius:8px;
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+
+    list-style: none;
+
 }
 
-.menu-btn{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
+.nav-links a {
+
+    text-decoration: none;
+
+    color: var(--brown);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
 }
 
-/* HERO */
+.nav-links a:hover {
 
-.hero{
-    min-height:650px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:80px 20px;
+    color: var(--gold);
+
+}
+
+.franchise-btn {
+
+    background: var(--gold);
+
+    color: var(--dark-brown) !important;
+
+    padding: 14px 22px;
+
+    border-radius: 8px;
+
+}
+
+.franchise-btn:hover {
+
+    transform: translateY(-2px);
+
+}
+
+.menu-btn {
+
+    display: none;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+    color: var(--brown);
+
+}
+
+/* ================= HERO ================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    padding-top: 88px;
+
+    display: flex;
+
+    align-items: center;
+
     background:
-    linear-gradient(rgba(38,18,10,.65),rgba(38,18,10,.65)),
+
+    linear-gradient(
+
+        rgba(35, 17, 10, 0.65),
+
+        rgba(35, 17, 10, 0.65)
+
+    ),
+
     url("https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=2000&q=85");
-    background-size:cover;
-    background-position:center;
-    color:white;
+
+    background-size: cover;
+
+    background-position: center;
+
 }
 
-.hero-content{
-    max-width:850px;
+.hero-content {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 50px 25px;
+
+    color: white;
+
 }
 
-.hero h1{
-    font-size:72px;
-    letter-spacing:5px;
-    margin-bottom:20px;
+.hero-content h1 {
+
+    font-size: clamp(50px, 8vw, 105px);
+
+    line-height: 0.95;
+
+    max-width: 800px;
+
 }
 
-.hero h1 span{
-    color:#e9a51e;
+.hero-content h1 span {
+
+    color: var(--gold);
+
 }
 
-.hero p{
-    font-size:23px;
-    line-height:1.7;
-    margin-bottom:35px;
+.hero-content p {
+
+    margin-top: 28px;
+
+    max-width: 600px;
+
+    font-size: 20px;
+
+    line-height: 1.7;
+
 }
 
-.hero-btn{
-    display:inline-block;
-    padding:17px 32px;
-    background:#e9a51e;
-    color:#21140e;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-    margin:7px;
+.hero-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+
 }
 
-/* COMMON */
+.btn {
 
-section{
-    padding:90px 8%;
+    display: inline-block;
+
+    text-decoration: none;
+
+    padding: 16px 27px;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
 }
 
-.section-title{
-    text-align:center;
-    font-size:44px;
-    margin-bottom:18px;
+.btn-primary {
+
+    background: var(--gold);
+
+    color: var(--dark-brown);
+
 }
 
-.section-subtitle{
-    text-align:center;
-    color:#735e53;
-    font-size:18px;
-    margin-bottom:55px;
+.btn-secondary {
+
+    border: 1px solid white;
+
+    color: white;
+
 }
 
-/* STORY */
+.btn:hover {
 
-.story{
-    max-width:1100px;
-    margin:auto;
-    text-align:center;
+    transform: translateY(-4px);
+
 }
 
-.story p{
-    font-size:19px;
-    line-height:1.9;
-    margin-bottom:20px;
+/* ================= SECTIONS ================= */
+
+section {
+
+    padding: 100px 7%;
+
 }
 
-/* PRODUCTS */
+.section-title {
 
-.products{
-    background:#f2e7d8;
+    text-align: center;
+
+    margin-bottom: 55px;
+
 }
 
-.product-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:22px;
+.section-title small {
+
+    color: var(--gold);
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
 }
 
-.product-card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 8px 25px rgba(0,0,0,.12);
-    transition:.3s;
+.section-title h2 {
+
+    font-size: clamp(32px, 5vw, 60px);
+
+    margin-top: 12px;
+
 }
 
-.product-card:hover{
-    transform:translateY(-10px);
+/* ================= STORY ================= */
+
+.story {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    max-width: 1250px;
+
+    margin: auto;
+
 }
 
-.product-card img{
-    width:100%;
-    height:210px;
-    object-fit:cover;
+.story-image img {
+
+    width: 100%;
+
+    height: 550px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
 }
 
-.product-card div{
-    padding:22px;
-    text-align:center;
+.story-content h2 {
+
+    font-size: 48px;
+
+    margin-bottom: 25px;
+
 }
 
-.product-card h3{
-    margin-bottom:10px;
+.story-content p {
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+
 }
 
-/* FOUNDERS */
+/* ================= FOUNDERS ================= */
 
-.founders{
-    max-width:1200px;
-    margin:auto;
+.founders-section {
+
+    background: var(--brown);
+
+    color: white;
+
 }
 
-.founder-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:20px;
+.founder-grid {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+
 }
 
-.founder-card{
-    background:#291810;
-    color:white;
-    text-align:center;
-    padding:30px 15px;
-    border-radius:18px;
+.founder-card {
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 18px;
+
+    padding: 30px 15px;
+
+    text-align: center;
+
+    transition: 0.3s;
+
 }
 
-.founder-photo{
-    width:120px;
-    height:120px;
-    margin:auto;
-    border-radius:50%;
-    background:#e9a51e;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:55px;
-    margin-bottom:18px;
+.founder-card:hover {
+
+    transform: translateY(-10px);
+
+    background: rgba(255,255,255,0.14);
+
 }
 
-.founder-card h3{
-    color:#e9a51e;
-    margin-bottom:10px;
+.founder-photo {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--gold);
+
+    color: var(--brown);
+
+    font-size: 42px;
+
+    margin-bottom: 20px;
+
 }
 
-/* JOURNEY */
+.founder-card h3 {
 
-.journey{
-    background:#291810;
-    color:white;
-    text-align:center;
+    margin-bottom: 10px;
+
 }
 
-.journey p{
-    max-width:900px;
-    margin:20px auto;
-    line-height:1.8;
-    font-size:19px;
+.founder-card p {
+
+    color: #e9a51c;
+
 }
 
-.vision-grid{
-    max-width:1000px;
-    margin:45px auto 0;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+/* ================= PRODUCTS ================= */
+
+.products {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+
 }
 
-.vision-box{
-    border:1px solid #e9a51e;
-    padding:35px;
-    border-radius:15px;
+.product-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+
+    transition: 0.3s;
+
 }
 
-.vision-box h3{
-    color:#e9a51e;
-    margin-bottom:15px;
+.product-card:hover {
+
+    transform: translateY(-10px);
+
 }
 
-/* CONTACT */
+.product-card img {
 
-.contact{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:1fr 1.3fr;
-    gap:40px;
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
 }
 
-.contact-info{
-    background:#24130d;
-    color:white;
-    padding:45px;
-    border-radius:20px;
+.product-info {
+
+    padding: 22px;
+
 }
 
-.contact-info h2{
-    color:#e9a51e;
-    margin-bottom:30px;
+.product-info h3 {
+
+    margin-bottom: 10px;
+
 }
 
-.contact-info p{
-    margin:20px 0;
-    font-size:18px;
-    line-height:1.6;
+.product-info p {
+
+    color: #666;
+
+    line-height: 1.6;
+
 }
 
-.contact-form{
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 5px 25px rgba(0,0,0,.12);
+/* ================= QUALITY ================= */
+
+.quality {
+
+    background: var(--light);
+
+}
+
+.quality-box {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.quality-box p {
+
+    font-size: 19px;
+
+    line-height: 1.9;
+
+}
+
+/* ================= JOURNEY ================= */
+
+.journey {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.journey p {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-bottom: 20px;
+
+}
+
+/* ================= BLOG ================= */
+
+.blog-section {
+
+    background: #f5eadb;
+
+}
+
+.blog-grid {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+}
+
+.blog-card {
+
+    background: white;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+.blog-card img {
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+
+}
+
+.blog-content {
+
+    padding: 25px;
+
+}
+
+.blog-content h3 {
+
+    margin-bottom: 12px;
+
+}
+
+.blog-content p {
+
+    color: #666;
+
+    line-height: 1.6;
+
+}
+
+/* ================= ADMIN ADD ================= */
+
+.add-content {
+
+    max-width: 700px;
+
+    margin: auto;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+.add-content input,
+
+.add-content textarea,
+
+.add-content button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+}
+
+.add-content button {
+
+    background: var(--gold);
+
+    border: none;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+/* ================= CONTACT ================= */
+
+.contact-wrapper {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.8fr 1.2fr;
+
+    gap: 40px;
+
+}
+
+.contact-info {
+
+    background: var(--dark-brown);
+
+    color: white;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+}
+
+.contact-info h2 {
+
+    color: var(--gold);
+
+    margin-bottom: 30px;
+
+}
+
+.contact-info p {
+
+    margin: 20px 0;
+
+    line-height: 1.7;
+
+}
+
+.contact-form {
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
 }
 
 .contact-form input,
-.contact-form textarea{
-    width:100%;
-    padding:17px;
-    margin-bottom:18px;
-    border:1px solid #ddd;
-    border-radius:8px;
-    font-size:16px;
+
+.contact-form textarea {
+
+    width: 100%;
+
+    padding: 17px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
 }
 
-.contact-form textarea{
-    height:150px;
-    resize:vertical;
+.contact-form textarea {
+
+    min-height: 150px;
+
+    resize: vertical;
+
 }
 
-.contact-form button{
-    width:100%;
-    padding:17px;
-    border:0;
-    border-radius:8px;
-    background:#e9a51e;
-    font-weight:bold;
-    font-size:16px;
-    cursor:pointer;
+.contact-form button {
+
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: var(--gold);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
 }
 
-.contact-form button:disabled{
-    opacity:0.6;
-    cursor:not-allowed;
+/* ================= MAP ================= */
+
+.map {
+
+    max-width: 1250px;
+
+    margin: 50px auto 0;
+
 }
 
-#formMessage{
-    margin-top:20px;
-    text-align:center;
-    font-weight:bold;
-    line-height:1.6;
+.map iframe {
+
+    width: 100%;
+
+    height: 400px;
+
+    border: 0;
+
+    border-radius: 18px;
+
 }
 
-/* MAP */
+/* ================= FOOTER ================= */
 
-.map{
-    margin-top:50px;
+footer {
+
+    background: var(--dark-brown);
+
+    color: white;
+
+    padding: 70px 7% 25px;
+
 }
 
-.map iframe{
-    width:100%;
-    height:400px;
-    border:0;
-    border-radius:18px;
+.footer-grid {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+
+    gap: 50px;
+
 }
 
-/* BLOG */
+.footer-logo img {
 
-.blog{
-    background:#f2e7d8;
+    width: 120px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
 }
 
-.blog-box{
-    max-width:1000px;
-    margin:auto;
-    text-align:center;
-    padding:50px;
-    background:white;
-    border-radius:20px;
+.footer-column h3 {
+
+    color: var(--gold);
+
+    margin-bottom: 20px;
+
 }
 
-/* FOOTER */
+.footer-column a {
 
-footer{
-    background:#24130d;
-    color:white;
-    padding:60px 8% 25px;
+    display: block;
+
+    color: white;
+
+    text-decoration: none;
+
+    margin: 12px 0;
+
 }
 
-.footer-grid{
-    max-width:1200px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr 1fr;
-    gap:40px;
+.footer-column a:hover {
+
+    color: var(--gold);
+
 }
 
-.footer-logo{
-    height:90px;
-    background:white;
-    padding:5px;
-    border-radius:8px;
-    margin-bottom:20px;
+.footer-bottom {
+
+    border-top: 1px solid rgba(255,255,255,0.2);
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+
+    text-align: center;
+
 }
 
-footer h3{
-    color:#e9a51e;
-    margin-bottom:20px;
-}
+/* ================= MOBILE ================= */
 
-footer p,
-footer a{
-    color:#ddd;
-    line-height:2;
-    text-decoration:none;
-}
+@media(max-width: 900px) {
 
-.copyright{
-    text-align:center;
-    border-top:1px solid #59483f;
-    margin-top:40px;
-    padding-top:20px;
-}
+    .menu-btn {
 
-/* MOBILE */
+        display: block;
 
-@media(max-width:900px){
-
-    .menu-btn{
-        display:block;
     }
 
-    .nav-links{
-        display:none;
-        position:absolute;
-        top:95px;
-        left:0;
-        width:100%;
-        background:#fffaf3;
-        flex-direction:column;
-        padding:25px;
-        gap:22px;
-        box-shadow:0 5px 15px rgba(0,0,0,.2);
+    .nav-links {
+
+        position: absolute;
+
+        top: 88px;
+
+        left: 0;
+
+        width: 100%;
+
+        background: var(--cream);
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 25px;
+
+        gap: 22px;
+
     }
 
-    .nav-links.active{
-        display:flex;
+    .nav-links.active {
+
+        display: flex;
+
     }
 
-    .hero h1{
-        font-size:48px;
+    .story {
+
+        grid-template-columns: 1fr;
+
     }
 
-    .product-grid{
-        grid-template-columns:repeat(2,1fr);
+    .founder-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
     }
 
-    .founder-grid{
-        grid-template-columns:repeat(2,1fr);
+    .products {
+
+        grid-template-columns: repeat(2, 1fr);
+
     }
 
-    .contact{
-        grid-template-columns:1fr;
+    .blog-grid {
+
+        grid-template-columns: 1fr;
+
     }
 
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
+    .contact-wrapper {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .footer-grid {
+
+        grid-template-columns: 1fr;
+
     }
 
 }
 
-@media(max-width:600px){
+@media(max-width: 550px) {
 
-    .navbar{
-        height:80px;
+    section {
+
+        padding: 70px 5%;
+
     }
 
-    .logo{
-        height:65px;
+    .navbar {
+
+        padding: 8px 15px;
+
     }
 
-    .hero{
-        min-height:560px;
+    .logo img {
+
+        width: 90px;
+
     }
 
-    .hero h1{
-        font-size:38px;
+    .hero-content h1 {
+
+        font-size: 55px;
+
     }
 
-    .hero p{
-        font-size:18px;
+    .founder-grid {
+
+        grid-template-columns: 1fr;
+
     }
 
-    section{
-        padding:60px 5%;
+    .products {
+
+        grid-template-columns: 1fr;
+
     }
 
-    .section-title{
-        font-size:34px;
-    }
+    .contact-info,
 
-    .product-grid,
-    .founder-grid,
-    .vision-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
+    .contact-form {
+
+        padding: 25px;
+
     }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
+
+<!-- ================= HEADER ================= -->
+
 <header>
 
-<div class="navbar">
+<nav class="navbar">
 
-<img src="pamsa-logo.png.png" class="logo" alt="PAMSA CHAI Logo">
+<a href="#home" class="logo">
 
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
+<img src="pamsa-logo.png.png"
+alt="PAMSA CHAI Logo">
 
-<nav class="nav-links" id="navLinks">
+</a>
 
-<a href="#home">HOME</a>
-<a href="#about">ABOUT US</a>
-<a href="#products">PRODUCT</a>
-<a href="#founders">OUR FOUNDERS</a>
-<a href="#franchise">FRANCHISES</a>
-<a href="#blog">OUR BLOG</a>
-<a href="#contact">CONTACT US</a>
 
-<a href="#franchise" class="franchise-btn">GET A FRANCHISE</a>
+<div class="menu-btn"
+onclick="toggleMenu()">
 
-</nav>
+☰
 
 </div>
+
+
+<ul class="nav-links"
+id="navLinks">
+
+<li>
+<a href="#home">HOME</a>
+</li>
+
+<li>
+<a href="#about">ABOUT US</a>
+</li>
+
+<li>
+<a href="#products">PRODUCT</a>
+</li>
+
+<li>
+<a href="#founders">OUR FOUNDERS</a>
+</li>
+
+<li>
+<a href="#franchise">FRANCHISES</a>
+</li>
+
+<li>
+<a href="#blog">OUR BLOG</a>
+</li>
+
+<li>
+<a href="#contact">CONTACT US</a>
+</li>
+
+<li>
+<a href="#franchise"
+class="franchise-btn">
+
+GET A FRANCHISE
+
+</a>
+</li>
+
+</ul>
+
+</nav>
 
 </header>
 
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 
-<section class="hero" id="home">
+<section
+class="hero"
+id="home">
 
 <div class="hero-content">
 
-<h1>PAMSA <span>CHAI</span></h1>
+<h1>
+
+One Cup.
+
+<br>
+
+<span>Many Stories.</span>
+
+</h1>
 
 <p>
-पाच मने • एक स्वप्न • एक कप चहा
-<br>
-One family. One dream. Infinite cups of chai.
+
+PAMSA CHAI is a family dream brewed with warmth,
+honest ingredients and the belief that every cup of chai
+can create a beautiful moment.
+
 </p>
 
-<a href="#products" class="hero-btn">EXPLORE OUR CHAI</a>
+<div class="hero-buttons">
 
-<a href="#contact" class="hero-btn">CONTACT US</a>
+<a href="#products"
+class="btn btn-primary">
+
+EXPLORE OUR CHAI
+
+</a>
+
+<a href="#about"
+class="btn btn-secondary">
+
+OUR STORY
+
+</a>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-<h2 class="section-title">Our Story</h2>
+<div class="section-title">
 
-<p class="section-subtitle">
-Every big dream starts with a simple cup of chai.
-</p>
-
-<div class="story">
-
-<p>
-PAMSA CHAI was born from a simple thought — that a cup of chai can bring people together.
-</p>
-
-<p>
-Behind PAMSA are five people, one family and one shared dream. A dream to create something of our own, something warm, honest and memorable.
-</p>
-
-<p>
-For us, chai is not just a beverage. It is the beginning of conversations, the pause between busy moments and the warmth that brings people closer.
-</p>
-
-<p>
-Our journey is just beginning. Every cup we serve is one more step towards building a brand that people remember not only for its taste, but for the feeling it creates.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- PRODUCTS -->
-
-<section class="products" id="products">
-
-<h2 class="section-title">Our Chai Collection</h2>
-
-<p class="section-subtitle">
-Crafted for every mood, every moment and every chai lover.
-</p>
-
-<div class="product-grid">
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=800&q=80">
-<div>
-<h3>Classic Masala Chai</h3>
-<p>Strong, aromatic and authentically Indian.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=800&q=80">
-<div>
-<h3>Premium Black Tea</h3>
-<p>Bold flavour for the true tea lover.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80">
-<div>
-<h3>Green Tea</h3>
-<p>Light, refreshing and naturally soothing.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80">
-<div>
-<h3>Ginger Tea</h3>
-<p>A warm and refreshing classic.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80">
-<div>
-<h3>Classic Coffee</h3>
-<p>Rich aroma for your perfect break.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FOUNDERS -->
-
-<section id="founders">
-
-<h2 class="section-title">The People Behind PAMSA</h2>
-
-<p class="section-subtitle">
-Five people. One dream. Infinite cups of chai.
-</p>
-
-<div class="founders">
-
-<div class="founder-grid">
-
-<div class="founder-card">
-<div class="founder-photo">P</div>
-<h3>Padmakar</h3>
-<p>The Foundation</p>
-</div>
-
-<div class="founder-card">
-<div class="founder-photo">M</div>
-<h3>Madhuri</h3>
-<p>The Heart</p>
-</div>
-
-<div class="founder-card">
-<div class="founder-photo">S</div>
-<h3>Shravani</h3>
-<p>The Spark</p>
-</div>
-
-<div class="founder-card">
-<div class="founder-photo">A</div>
-<h3>Atharva</h3>
-<p>The Vision</p>
-</div>
-
-<div class="founder-card">
-<div class="founder-photo">A</div>
-<h3>Apurva</h3>
-<p>The Soul</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- JOURNEY -->
-
-<section class="journey">
-
-<h2 class="section-title">Our Journey</h2>
+<small>OUR STORY</small>
 
 <h2>Every Big Dream Starts Small.</h2>
 
-<p>
-Behind every cup is a journey. A journey filled with ideas, discussions, doubts, planning and the courage to begin.
-</p>
-
-<p>
-PAMSA CHAI is not just a business idea. It is a family dream that we want to grow one cup, one customer and one meaningful conversation at a time.
-</p>
-
-<p>
-The journey is just beginning — and we want you to be a part of it.
-</p>
-
-<div class="vision-grid">
-
-<div class="vision-box">
-<h3>Our Vision</h3>
-<p>
-To build a tea brand that people remember not only for its taste, but for the warmth and feeling they experience with every visit.
-</p>
 </div>
 
-<div class="vision-box">
-<h3>Our Mission</h3>
-<p>
-To serve honest, memorable chai and create spaces where people can pause, connect and enjoy the simple happiness of a good cup.
-</p>
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FRANCHISE -->
-
-<section id="franchise">
-
-<h2 class="section-title">Franchise With PAMSA</h2>
-
-<p class="section-subtitle">
-A small beginning can become a big journey.
-</p>
 
 <div class="story">
 
+<div class="story-image">
+
+<img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=1000&q=85">
+
+</div>
+
+
+<div class="story-content">
+
+<h2>Why PAMSA?</h2>
+
 <p>
-We are currently building the PAMSA CHAI dream and looking forward to connecting with people who believe in the power of a good cup of chai.
+
+Five people. One family. One dream.
+
 </p>
 
 <p>
-Franchise opportunities will be announced soon.
+
+PAMSA CHAI was born from a simple thought —
+that chai is never just a beverage.
+
+It is a pause in a busy day.
+
+A conversation between friends.
+
+A memory shared with family.
+
+A small moment that feels special.
+
 </p>
 
-<a href="#contact" class="hero-btn">TALK TO US</a>
+<p>
+
+The name PAMSA represents the five people
+and five energies behind this dream.
+
+Different personalities.
+
+One shared vision.
+
+</p>
+
+<p>
+
+We are starting small, but dreaming big —
+one cup, one customer and one meaningful
+conversation at a time.
+
+</p>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- BLOG -->
+<!-- ================= FOUNDERS ================= -->
 
-<section class="blog" id="blog">
+<section
+id="founders"
+class="founders-section">
 
-<h2 class="section-title">Our Blog</h2>
+<div class="section-title">
 
-<p class="section-subtitle">
-Stories, ideas and conversations from the world of chai.
+<small>THE PEOPLE BEHIND PAMSA</small>
+
+<h2>Five People. One Dream.</h2>
+
+</div>
+
+
+<div class="founder-grid">
+
+
+<div class="founder-card">
+
+<div class="founder-photo">
+
+P
+
+</div>
+
+<h3>Padmakar</h3>
+
+<p>The Foundation</p>
+
+</div>
+
+
+<div class="founder-card">
+
+<div class="founder-photo">
+
+M
+
+</div>
+
+<h3>Madhuri</h3>
+
+<p>The Heart</p>
+
+</div>
+
+
+<div class="founder-card">
+
+<div class="founder-photo">
+
+S
+
+</div>
+
+<h3>Shravani</h3>
+
+<p>The Spark</p>
+
+</div>
+
+
+<div class="founder-card">
+
+<div class="founder-photo">
+
+A
+
+</div>
+
+<h3>Atharva</h3>
+
+<p>The Vision</p>
+
+</div>
+
+
+<div class="founder-card">
+
+<div class="founder-photo">
+
+A
+
+</div>
+
+<h3>Apurva</h3>
+
+<p>The Soul</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="products">
+
+<div class="section-title">
+
+<small>OUR MENU</small>
+
+<h2>Made For Every Chai Mood.</h2>
+
+</div>
+
+
+<div class="products">
+
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=80">
+
+<div class="product-info">
+
+<h3>Classic Masala Chai</h3>
+
+<p>
+
+A warm blend of tea, spices and tradition.
+
 </p>
 
-<div class="blog-box">
+</div>
 
-<h2>Coming Soon ☕</h2>
+</div>
 
-<p style="margin-top:20px;line-height:1.8;">
-Our blog is coming soon. We will share our journey, chai stories, business experiences and much more.
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80">
+
+<div class="product-info">
+
+<h3>Premium Black Tea</h3>
+
+<p>
+
+Bold, rich and full of character.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80">
+
+<div class="product-info">
+
+<h3>Green Tea</h3>
+
+<p>
+
+Light, refreshing and naturally soothing.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=80">
+
+<div class="product-info">
+
+<h3>Ginger Tea</h3>
+
+<p>
+
+A refreshing kick of natural ginger.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80">
+
+<div class="product-info">
+
+<h3>Classic Coffee</h3>
+
+<p>
+
+For the moments when chai takes a little break.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= QUALITY ================= -->
+
+<section class="quality">
+
+<div class="quality-box">
+
+<div class="section-title">
+
+<small>OUR PROMISE</small>
+
+<h2>Quality You Can Taste.</h2>
+
+</div>
+
+<p>
+
+We believe great chai begins with honest ingredients.
+
+We focus on flavour, freshness and consistency in every cup.
+
+No unnecessary shortcuts.
+
+Just good ingredients, thoughtful preparation and a lot of love.
+
 </p>
 
 </div>
@@ -786,38 +1440,272 @@ Our blog is coming soon. We will share our journey, chai stories, business exper
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= JOURNEY ================= -->
+
+<section>
+
+<div class="journey">
+
+<div class="section-title">
+
+<small>OUR JOURNEY</small>
+
+<h2>The Journey Has Just Begun.</h2>
+
+</div>
+
+<p>
+
+Every big dream starts with a small idea.
+
+PAMSA CHAI is our family dream — built through ideas,
+discussions, doubts, planning and the courage to begin.
+
+</p>
+
+<p>
+
+We may be at the beginning of our journey,
+but our vision is much bigger.
+
+We want to build a tea brand people remember
+not only for its taste, but also for the warmth
+they feel when they visit us.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= FRANCHISE ================= -->
+
+<section
+id="franchise"
+class="quality">
+
+<div class="section-title">
+
+<small>FRANCHISE</small>
+
+<h2>Grow With PAMSA.</h2>
+
+</div>
+
+<div class="journey">
+
+<p>
+
+PAMSA CHAI is currently building its foundation.
+
+Our franchise opportunities will be announced soon.
+
+If you believe in the power of chai and want to grow
+with a passionate family brand, connect with us.
+
+</p>
+
+<a href="#contact"
+class="btn btn-primary">
+
+GET IN TOUCH
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= BLOG ================= -->
+
+<section id="blog"
+class="blog-section">
+
+<div class="section-title">
+
+<small>OUR BLOG</small>
+
+<h2>Stories Beyond The Cup.</h2>
+
+</div>
+
+
+<div class="blog-grid"
+id="blogGrid">
+
+
+<div class="blog-card">
+
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80">
+
+<div class="blog-content">
+
+<h3>Why Chai Brings People Together</h3>
+
+<p>
+
+Some conversations begin with a simple cup of chai.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="blog-card">
+
+<img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=80">
+
+<div class="blog-content">
+
+<h3>The Beginning Of PAMSA</h3>
+
+<p>
+
+Every family dream starts with one small thought.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= ADD BLOG ================= -->
+
+<section>
+
+<div class="section-title">
+
+<small>CONTENT MANAGEMENT</small>
+
+<h2>Add Your Own Blog</h2>
+
+</div>
+
+
+<div class="add-content">
+
+<input
+id="blogTitle"
+type="text"
+placeholder="Blog Title">
+
+
+<textarea
+id="blogText"
+placeholder="Write your blog content...">
+
+</textarea>
+
+
+<input
+id="blogImage"
+type="file"
+accept="image/*">
+
+
+<button
+onclick="addBlog()">
+
+ADD BLOG
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<h2 class="section-title">Contact Us</h2>
+<div class="section-title">
 
-<p class="section-subtitle">
-We would love to hear from you.
-</p>
+<small>CONTACT US</small>
 
-<div class="contact">
+<h2>We Would Love To Hear From You.</h2>
+
+</div>
+
+
+<div class="contact-wrapper">
+
 
 <div class="contact-info">
 
 <h2>CONNECT WITH PAMSA</h2>
 
-<p>📧 <b>Atharva</b><br>
-8329154376<br>
-shriiatharva@gmail.com</p>
 
-<p>📧 <b>Apurva</b><br>
-9767324239<br>
-apurvavenikar38@gmail.com</p>
+<p>
 
-<p>📍 Pune, Maharashtra, India</p>
+📧 <strong>Atharva</strong><br>
+
+<a
+href="mailto:shriiatharva@gmail.com"
+style="color:white">
+
+shriiatharva@gmail.com
+
+</a>
+
+</p>
+
+
+<p>
+
+📞 8329154376
+
+</p>
+
+
+<p>
+
+📧 <strong>Apurva</strong><br>
+
+<a
+href="mailto:apurvavenikar38@gmail.com"
+style="color:white">
+
+apurvavenikar38@gmail.com
+
+</a>
+
+</p>
+
+
+<p>
+
+📞 9767324239
+
+</p>
+
+
+<p>
+
+📍 Pune, Maharashtra, India
+
+</p>
 
 </div>
 
 
 <div class="contact-form">
 
-<form id="contactForm">
+
+<form
+id="contactForm"
+onsubmit="submitContactForm(event)">
+
 
 <input
 type="text"
@@ -825,33 +1713,38 @@ id="name"
 placeholder="Your Name"
 required>
 
+
 <input
 type="email"
 id="email"
 placeholder="Your Email"
 required>
 
+
 <input
-type="text"
+type="tel"
 id="phone"
-placeholder="Phone Number">
+placeholder="Phone Number"
+required>
+
 
 <textarea
 id="message"
 placeholder="Your Message"
-required></textarea>
+required>
+
+</textarea>
+
 
 <button
-type="submit"
-id="submitButton">
+type="submit">
 
 SEND MESSAGE
 
 </button>
 
-</form>
 
-<div id="formMessage"></div>
+</form>
 
 </div>
 
@@ -860,11 +1753,12 @@ SEND MESSAGE
 
 <div class="map">
 
-<h2 class="section-title">Find Us</h2>
-
 <iframe
-src="https://www.google.com/maps?q=Pune,Maharashtra,India&output=embed"
+
+src="https://www.google.com/maps?q=Shivajinagar%20Pune%20Maharashtra&output=embed"
+
 loading="lazy">
+
 </iframe>
 
 </div>
@@ -872,213 +1766,414 @@ loading="lazy">
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
+
 <div class="footer-grid">
 
-<div>
+
+<div class="footer-logo">
 
 <img
 src="pamsa-logo.png.png"
-class="footer-logo"
-alt="PAMSA CHAI Logo">
+alt="PAMSA CHAI">
+
 
 <p>
-PAMSA CHAI is a family dream built around the warmth, conversations and happiness created by a good cup of chai.
+
+PAMSA CHAI is a family dream built around
+the warmth, taste and memories created by
+a simple cup of chai.
+
 </p>
 
 </div>
 
-<div>
+
+<div class="footer-column">
 
 <h3>QUICK LINKS</h3>
 
-<p><a href="#home">Home</a></p>
-<p><a href="#about">About Us</a></p>
-<p><a href="#products">Products</a></p>
-<p><a href="#founders">Our Founders</a></p>
+<a href="#home">Home</a>
+
+<a href="#about">About Us</a>
+
+<a href="#products">Products</a>
+
+<a href="#founders">Our Founders</a>
+
+<a href="#franchise">Franchises</a>
+
+<a href="#blog">Our Blog</a>
+
+<a href="#contact">Contact Us</a>
 
 </div>
 
-<div>
 
-<h3>EXPLORE</h3>
-
-<p><a href="#franchise">Franchises</a></p>
-<p><a href="#blog">Our Blog</a></p>
-<p><a href="#contact">Contact Us</a></p>
-
-</div>
-
-<div>
+<div class="footer-column">
 
 <h3>CONTACT US</h3>
 
-<p>📧 shriiatharva@gmail.com</p>
-<p>📧 apurvavenikar38@gmail.com</p>
-<p>📞 8329154376</p>
-<p>📞 9767324239</p>
+<p>
+
+Atharva<br>
+
+📞 8329154376<br>
+
+📧 shriiatharva@gmail.com
+
+</p>
+
+<br>
+
+<p>
+
+Apurva<br>
+
+📞 9767324239<br>
+
+📧 apurvavenikar38@gmail.com
+
+</p>
 
 </div>
 
+
 </div>
 
-<div class="copyright">
+
+<div class="footer-bottom">
 
 © 2026 PAMSA CHAI. All Rights Reserved.
 
 </div>
+
 
 </footer>
 
 
 <script>
 
-/* MOBILE MENU */
+/* ================= MOBILE MENU ================= */
 
-function toggleMenu(){
+function toggleMenu() {
 
     document
-    .getElementById("navLinks")
-    .classList
-    .toggle("active");
+        .getElementById("navLinks")
+        .classList
+        .toggle("active");
 
 }
 
 
-/* SUPABASE CONNECTION */
+/* ================= SUPABASE ================= */
 
 const SUPABASE_URL =
 "https://sebfxpsrjzhnrrtpbvuo.supabase.co";
 
-const SUPABASE_KEY =
-"sb_publishable_GNstyoJ3QpBVLLcqJCpo9A_7AddF2ND";
+const SUPABASE_ANON_KEY =
+"PASTE_YOUR_ANON_OR_PUBLISHABLE_KEY_HERE";
 
 
-/* CONTACT FORM */
+/* ================= CONTACT FORM ================= */
 
-document
-.getElementById("contactForm")
-.addEventListener("submit", async function(event){
+async function submitContactForm(event) {
 
     event.preventDefault();
 
-    const formMessage =
-    document.getElementById("formMessage");
 
-    const submitButton =
-    document.getElementById("submitButton");
+    const button =
+        document.querySelector(
+            "#contactForm button"
+        );
 
-    formMessage.innerHTML =
-    "Saving message...";
 
-    submitButton.disabled = true;
-
-    const data = {
-
-        name:
+    const name =
         document
         .getElementById("name")
         .value
-        .trim(),
+        .trim();
 
-        email:
+
+    const email =
         document
         .getElementById("email")
         .value
-        .trim(),
+        .trim();
 
-        phone:
+
+    const phone =
         document
         .getElementById("phone")
         .value
-        .trim(),
+        .trim();
 
-        message:
+
+    const message =
         document
         .getElementById("message")
         .value
-        .trim()
-
-    };
+        .trim();
 
 
-    try{
+    button.disabled = true;
+
+    button.innerText =
+        "SENDING...";
+
+
+    try {
+
 
         const response =
-        await fetch(
-        `${SUPABASE_URL}/rest/v1/contact_messages`,
-        {
+            await fetch(
 
-            method:"POST",
+                SUPABASE_URL +
+                "/rest/v1/contact_messages",
 
-            headers:{
+                {
 
-                "apikey":SUPABASE_KEY,
+                    method: "POST",
 
-                "Authorization":
-                `Bearer ${SUPABASE_KEY}`,
+                    headers: {
 
-                "Content-Type":
-                "application/json",
+                        "Content-Type":
+                        "application/json",
 
-                "Prefer":
-                "return=minimal"
+                        "apikey":
+                        SUPABASE_ANON_KEY,
 
-            },
+                        "Authorization":
+                        "Bearer " +
+                        SUPABASE_ANON_KEY,
 
-            body:
-            JSON.stringify(data)
+                        "Prefer":
+                        "return=minimal"
 
-        });
+                    },
+
+                    body:
+                    JSON.stringify({
+
+                        name: name,
+
+                        email: email,
+
+                        phone: phone,
+
+                        message: message
+
+                    })
+
+                }
+
+            );
 
 
-        if(!response.ok){
+        if (response.ok) {
 
-            const errorText =
-            await response.text();
+            alert(
+                "Message sent successfully! ☕"
+            );
 
-            throw new Error(
-                `HTTP ${response.status}: ${errorText}`
+
+            document
+                .getElementById(
+                    "contactForm"
+                )
+                .reset();
+
+        }
+
+        else {
+
+            const error =
+                await response.text();
+
+
+            console.error(
+                error
+            );
+
+
+            alert(
+                "Message save failed ❌\n\n" +
+                error
             );
 
         }
 
-
-        formMessage.innerHTML =
-        "Message sent successfully ✅";
-
-        document
-        .getElementById("contactForm")
-        .reset();
-
-
     }
 
-    catch(error){
+
+    catch (error) {
 
         console.error(
-            "Supabase Error:",
             error
         );
 
-        formMessage.innerHTML =
-        "Message save failed ❌<br>" +
-        error.message;
+
+        alert(
+            "Database connection failed ❌"
+        );
 
     }
 
-    finally{
 
-        submitButton.disabled = false;
+    button.disabled = false;
+
+    button.innerText =
+        "SEND MESSAGE";
+
+}
+
+
+/* ================= BLOG ================= */
+
+function addBlog() {
+
+
+    const title =
+        document
+        .getElementById("blogTitle")
+        .value
+        .trim();
+
+
+    const text =
+        document
+        .getElementById("blogText")
+        .value
+        .trim();
+
+
+    const imageInput =
+        document
+        .getElementById("blogImage");
+
+
+    if (!title || !text) {
+
+        alert(
+            "Please enter title and content."
+        );
+
+        return;
 
     }
 
-});
+
+    const reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(event) {
+
+
+            const blogGrid =
+                document
+                .getElementById(
+                    "blogGrid"
+                );
+
+
+            const card =
+                document
+                .createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "blog-card";
+
+
+            card.innerHTML = `
+
+                <img
+                src="${event.target.result}">
+
+                <div
+                class="blog-content">
+
+                    <h3>
+                    ${title}
+                    </h3>
+
+                    <p>
+                    ${text}
+                    </p>
+
+                </div>
+
+            `;
+
+
+            blogGrid
+                .appendChild(
+                    card
+                );
+
+
+            document
+                .getElementById(
+                    "blogTitle"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "blogText"
+                )
+                .value = "";
+
+
+            document
+                .getElementById(
+                    "blogImage"
+                )
+                .value = "";
+
+
+            alert(
+                "Blog added successfully!"
+            );
+
+        };
+
+
+    if (
+        imageInput.files &&
+        imageInput.files[0]
+    ) {
+
+        reader.readAsDataURL(
+            imageInput.files[0]
+        );
+
+    }
+
+    else {
+
+        reader.onload({
+            target: {
+                result:
+                "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
+            }
+        });
+
+    }
+
+}
 
 </script>
 
+
 </body>
+
 </html>
