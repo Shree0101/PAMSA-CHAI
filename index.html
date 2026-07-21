@@ -11,6 +11,8 @@
 
 <style>
 
+/* ================= RESET ================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -192,12 +194,14 @@ section {
 .section-title small {
     color: var(--gold);
     font-weight: bold;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    font-size: 14px;
 }
 
 .section-title h2 {
-    font-size: clamp(32px, 5vw, 60px);
-    margin-top: 12px;
+    font-size: clamp(38px, 5vw, 68px);
+    margin-top: 15px;
+    line-height: 1.1;
 }
 
 /* ================= STORY ================= */
@@ -219,7 +223,7 @@ section {
 }
 
 .story-content h2 {
-    font-size: 48px;
+    font-size: 52px;
     margin-bottom: 25px;
 }
 
@@ -274,6 +278,7 @@ section {
 
 .founder-card h3 {
     margin-bottom: 10px;
+    font-size: 21px;
 }
 
 .founder-card p {
@@ -371,6 +376,11 @@ section {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
 }
 
 .blog-card img {
@@ -385,6 +395,7 @@ section {
 
 .blog-content h3 {
     margin-bottom: 12px;
+    font-size: 22px;
 }
 
 .blog-content p {
@@ -398,19 +409,19 @@ section {
     max-width: 700px;
     margin: auto;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
 }
 
 .add-content input,
 .add-content textarea,
 .add-content button {
     width: 100%;
-    padding: 14px;
-    margin-bottom: 15px;
+    padding: 16px;
+    margin-bottom: 16px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
 }
 
@@ -424,6 +435,11 @@ section {
     border: none;
     font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-content button:hover {
+    transform: translateY(-3px);
 }
 
 /* ================= CONTACT ================= */
@@ -446,11 +462,13 @@ section {
 .contact-info h2 {
     color: var(--gold);
     margin-bottom: 30px;
+    font-size: 32px;
 }
 
 .contact-info p {
-    margin: 20px 0;
-    line-height: 1.7;
+    margin: 25px 0;
+    line-height: 1.8;
+    font-size: 17px;
 }
 
 .contact-info a {
@@ -507,6 +525,50 @@ section {
     height: 400px;
     border: 0;
     border-radius: 18px;
+}
+
+/* ================= TRENDING CHAI ================= */
+
+.trending-section {
+    background: var(--dark-brown);
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.trending-section .section-title {
+    color: white;
+    padding: 0 7%;
+}
+
+.trending-track {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    animation: chaiMove 35s linear infinite;
+}
+
+.trending-track:hover {
+    animation-play-state: paused;
+}
+
+.trending-track img {
+    width: 260px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+@keyframes chaiMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
 }
 
 /* ================= FOOTER ================= */
@@ -611,6 +673,7 @@ footer {
     .footer-grid {
         grid-template-columns: 1fr;
     }
+
 }
 
 @media(max-width: 550px) {
@@ -643,6 +706,12 @@ footer {
     .contact-form {
         padding: 25px;
     }
+
+    .trending-track img {
+        width: 210px;
+        height: 150px;
+    }
+
 }
 
 </style>
@@ -1144,41 +1213,7 @@ class="blog-section">
 class="blog-grid"
 id="blogGrid">
 
-<div class="blog-card">
-
-<img
-src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
-alt="Chai">
-
-<div class="blog-content">
-
-<h3>Why Chai Brings People Together</h3>
-
-<p>
-Some conversations begin with a simple cup of chai.
-</p>
-
-</div>
-
-</div>
-
-<div class="blog-card">
-
-<img
-src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=900&q=80"
-alt="PAMSA">
-
-<div class="blog-content">
-
-<h3>The Beginning Of PAMSA</h3>
-
-<p>
-Every family dream starts with one small thought.
-</p>
-
-</div>
-
-</div>
+<!-- BLOGS WILL LOAD FROM SUPABASE -->
 
 </div>
 
@@ -1321,6 +1356,51 @@ loading="lazy">
 </section>
 
 
+<!-- ================= TRENDING CHAI ================= -->
+
+<section class="trending-section">
+
+<div class="section-title">
+
+<small>TRENDING CHAI MOMENTS</small>
+
+<h2>Made For Every Chai Story ☕</h2>
+
+</div>
+
+<div class="trending-track">
+
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=85">
+
+<!-- DUPLICATE FOR SMOOTH LOOP -->
+
+<img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1594631252845-29fc4cc8cde9?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=700&q=85">
+
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=85">
+
+</div>
+
+</section>
+
+
 <!-- ================= FOOTER ================= -->
 
 <footer>
@@ -1388,7 +1468,9 @@ Apurva Atharva Dikshe<br>
 
 <script>
 
-/* ================= MOBILE MENU ================= */
+/* ================================================= */
+/* MOBILE MENU */
+/* ================================================= */
 
 function toggleMenu() {
 
@@ -1400,7 +1482,9 @@ function toggleMenu() {
 }
 
 
-/* ================= SUPABASE ================= */
+/* ================================================= */
+/* SUPABASE CONFIGURATION */
+/* ================================================= */
 
 const SUPABASE_URL =
 "https://sebfxpsrjzhnrrtpbvuo.supabase.co";
@@ -1409,7 +1493,9 @@ const SUPABASE_ANON_KEY =
 "sb_publishable_GNstyoJ3QpBVLLcqJCpo9A_7AddF2ND";
 
 
-/* ================= CONTACT FORM ================= */
+/* ================================================= */
+/* CONTACT FORM */
+/* ================================================= */
 
 async function submitContactForm(event) {
 
@@ -1432,51 +1518,54 @@ async function submitContactForm(event) {
 
     button.disabled = true;
 
-    button.innerText = "SENDING...";
+    button.innerText =
+        "SENDING...";
 
     try {
 
-        const response = await fetch(
+        const response =
+            await fetch(
 
-            SUPABASE_URL +
-            "/rest/v1/contact_messages",
+                SUPABASE_URL +
+                "/rest/v1/contact_messages",
 
-            {
+                {
 
-                method: "POST",
+                    method: "POST",
 
-                headers: {
+                    headers: {
 
-                    "Content-Type":
-                    "application/json",
+                        "Content-Type":
+                        "application/json",
 
-                    "apikey":
-                    SUPABASE_ANON_KEY,
+                        "apikey":
+                        SUPABASE_ANON_KEY,
 
-                    "Authorization":
-                    "Bearer " +
-                    SUPABASE_ANON_KEY,
+                        "Authorization":
+                        "Bearer " +
+                        SUPABASE_ANON_KEY,
 
-                    "Prefer":
-                    "return=minimal"
+                        "Prefer":
+                        "return=minimal"
 
-                },
+                    },
 
-                body: JSON.stringify({
+                    body:
+                    JSON.stringify({
 
-                    name: name,
+                        name: name,
 
-                    email: email,
+                        email: email,
 
-                    phone: phone,
+                        phone: phone,
 
-                    message: message
+                        message: message
 
-                })
+                    })
 
-            }
+                }
 
-        );
+            );
 
 
         if (response.ok) {
@@ -1532,9 +1621,165 @@ async function submitContactForm(event) {
 }
 
 
-/* ================= BLOG ================= */
+/* ================================================= */
+/* LOAD BLOGS FROM SUPABASE */
+/* ================================================= */
 
-function addBlog() {
+async function loadBlogs() {
+
+    const blogGrid =
+        document.getElementById("blogGrid");
+
+    try {
+
+        const response =
+            await fetch(
+
+                SUPABASE_URL +
+                "/rest/v1/blogs?select=*&order=created_at.desc",
+
+                {
+
+                    method: "GET",
+
+                    headers: {
+
+                        "apikey":
+                        SUPABASE_ANON_KEY,
+
+                        "Authorization":
+                        "Bearer " +
+                        SUPABASE_ANON_KEY
+
+                    }
+
+                }
+
+            );
+
+
+        if (!response.ok) {
+
+            const error =
+                await response.text();
+
+            console.error(
+                "BLOG LOAD ERROR:",
+                error
+            );
+
+            return;
+
+        }
+
+
+        const blogs =
+            await response.json();
+
+
+        blogGrid.innerHTML =
+            "";
+
+
+        if (
+            !blogs ||
+            blogs.length === 0
+        ) {
+
+            blogGrid.innerHTML = `
+
+                <div
+                class="blog-card">
+
+                    <img
+                    src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
+                    alt="Chai">
+
+                    <div
+                    class="blog-content">
+
+                        <h3>
+                        Welcome To PAMSA CHAI
+                        </h3>
+
+                        <p>
+                        Our stories are brewing. Stay tuned for more chai moments.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        blogs.forEach(
+
+            function(blog) {
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "blog-card";
+
+
+                const image =
+                    blog.image_url ||
+                    "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80";
+
+
+                card.innerHTML = `
+
+                    <img
+                    src="${image}"
+                    alt="${blog.title}">
+
+                    <div
+                    class="blog-content">
+
+                        <h3>
+                        ${blog.title}
+                        </h3>
+
+                        <p>
+                        ${blog.content}
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                blogGrid.appendChild(card);
+
+            }
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "BLOG CONNECTION ERROR:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ================================================= */
+/* ADD BLOG TO SUPABASE */
+/* ================================================= */
+
+async function addBlog() {
 
     const title =
         document
@@ -1542,115 +1787,290 @@ function addBlog() {
         .value
         .trim();
 
-    const text =
+
+    const content =
         document
         .getElementById("blogText")
         .value
         .trim();
 
+
     const imageInput =
         document
         .getElementById("blogImage");
 
-    if (!title || !text) {
+
+    if (
+        !title ||
+        !content
+    ) {
 
         alert(
-            "Please enter title and content."
+            "Please enter blog title and content."
         );
 
         return;
 
     }
 
-    const createBlogCard =
-        function(imageSource) {
 
-            const blogGrid =
-                document
-                .getElementById("blogGrid");
-
-            const card =
-                document.createElement("div");
-
-            card.className =
-                "blog-card";
-
-            card.innerHTML = `
-
-                <img
-                src="${imageSource}"
-                alt="${title}">
-
-                <div
-                class="blog-content">
-
-                    <h3>
-                    ${title}
-                    </h3>
-
-                    <p>
-                    ${text}
-                    </p>
-
-                </div>
-
-            `;
-
-            blogGrid.appendChild(card);
-
-            document
-                .getElementById("blogTitle")
-                .value = "";
-
-            document
-                .getElementById("blogText")
-                .value = "";
-
-            document
-                .getElementById("blogImage")
-                .value = "";
-
-            alert(
-                "Blog added successfully! ☕"
-            );
-
-        };
+    const button =
+        document.querySelector(
+            ".add-content button"
+        );
 
 
-    if (
-        imageInput.files &&
-        imageInput.files[0]
-    ) {
+    button.disabled =
+        true;
 
-        const reader =
-            new FileReader();
 
-        reader.onload =
-            function(event) {
+    button.innerText =
+        "PUBLISHING...";
 
-                createBlogCard(
-                    event.target.result
+
+    try {
+
+
+        let imageUrl =
+            null;
+
+
+        /* ========================= */
+        /* UPLOAD IMAGE */
+        /* ========================= */
+
+        if (
+
+            imageInput.files &&
+            imageInput.files[0]
+
+        ) {
+
+
+            const file =
+                imageInput.files[0];
+
+
+            const fileExtension =
+                file.name
+                .split(".")
+                .pop();
+
+
+            const fileName =
+                Date.now() +
+                "-" +
+                Math.random()
+                .toString(36)
+                .substring(2) +
+                "." +
+                fileExtension;
+
+
+            const uploadResponse =
+                await fetch(
+
+                    SUPABASE_URL +
+                    "/storage/v1/object/blog-images/" +
+                    fileName,
+
+                    {
+
+                        method: "POST",
+
+                        headers: {
+
+                            "apikey":
+                            SUPABASE_ANON_KEY,
+
+                            "Authorization":
+                            "Bearer " +
+                            SUPABASE_ANON_KEY,
+
+                            "Content-Type":
+                            file.type
+
+                        },
+
+                        body:
+                        file
+
+                    }
+
                 );
 
-            };
 
-        reader.readAsDataURL(
-            imageInput.files[0]
+            if (
+                !uploadResponse.ok
+            ) {
+
+                const error =
+                    await uploadResponse.text();
+
+
+                throw new Error(
+                    "Image upload failed: " +
+                    error
+                );
+
+            }
+
+
+            imageUrl =
+                SUPABASE_URL +
+                "/storage/v1/object/public/blog-images/" +
+                fileName;
+
+        }
+
+
+        /* ========================= */
+        /* SAVE BLOG */
+        /* ========================= */
+
+        const blogResponse =
+            await fetch(
+
+                SUPABASE_URL +
+                "/rest/v1/blogs",
+
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                        "application/json",
+
+                        "apikey":
+                        SUPABASE_ANON_KEY,
+
+                        "Authorization":
+                        "Bearer " +
+                        SUPABASE_ANON_KEY,
+
+                        "Prefer":
+                        "return=minimal"
+
+                    },
+
+                    body:
+                    JSON.stringify({
+
+                        title:
+                        title,
+
+                        content:
+                        content,
+
+                        image_url:
+                        imageUrl
+
+                    })
+
+                }
+
+            );
+
+
+        if (
+            !blogResponse.ok
+        ) {
+
+            const error =
+                await blogResponse.text();
+
+
+            throw new Error(
+                "Blog save failed: " +
+                error
+            );
+
+        }
+
+
+        alert(
+            "Blog published successfully! ☕"
+        );
+
+
+        document
+            .getElementById("blogTitle")
+            .value =
+            "";
+
+
+        document
+            .getElementById("blogText")
+            .value =
+            "";
+
+
+        document
+            .getElementById("blogImage")
+            .value =
+            "";
+
+
+        await loadBlogs();
+
+
+        document
+            .getElementById("blog")
+            .scrollIntoView({
+
+                behavior:
+                "smooth"
+
+            });
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "BLOG ERROR:",
+            error
+        );
+
+
+        alert(
+
+            "Blog publish failed ❌\n\n" +
+            error.message
+
         );
 
     }
 
-    else {
 
-        createBlogCard(
+    button.disabled =
+        false;
 
-            "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=900&q=80"
 
-        );
-
-    }
+    button.innerText =
+        "ADD BLOG";
 
 }
+
+
+/* ================================================= */
+/* LOAD BLOGS WHEN PAGE LOADS */
+/* ================================================= */
+
+document.addEventListener(
+
+    "DOMContentLoaded",
+
+    function() {
+
+        loadBlogs();
+
+    }
+
+);
 
 </script>
 
